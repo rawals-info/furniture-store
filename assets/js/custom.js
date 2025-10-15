@@ -22,17 +22,23 @@
 
     // Mobile Menu Toggle
     function initMobileMenu() {
-        $('.menu-toggle').on('click', function() {
+        $('.mobile-menu-toggle').on('click', function() {
             $(this).toggleClass('active');
-            $('.main-navigation .nav-menu').toggleClass('active');
+            $('.mobile-nav').toggleClass('active');
         });
 
         // Close menu when clicking outside
         $(document).on('click', function(e) {
-            if (!$(e.target).closest('.main-navigation').length) {
-                $('.menu-toggle').removeClass('active');
-                $('.main-navigation .nav-menu').removeClass('active');
+            if (!$(e.target).closest('.mobile-nav').length && !$(e.target).closest('.mobile-menu-toggle').length) {
+                $('.mobile-menu-toggle').removeClass('active');
+                $('.mobile-nav').removeClass('active');
             }
+        });
+
+        // Close menu when clicking on a menu item
+        $('.mobile-menu a').on('click', function() {
+            $('.mobile-menu-toggle').removeClass('active');
+            $('.mobile-nav').removeClass('active');
         });
     }
 

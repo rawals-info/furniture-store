@@ -869,6 +869,210 @@ section {
 }
 
 /* ===== Responsive Design ===== */
+
+/* Mobile Header Fixes */
+@media (max-width: 991px) {
+    /* Hide top bar on tablets and mobile */
+    .top-bar {
+        display: none !important;
+    }
+    
+    /* Adjust main header padding */
+    .main-header {
+        padding: 10px 0 !important;
+    }
+    
+    /* Make logo and brand text smaller */
+    .site-title {
+        font-size: 18px !important;
+        line-height: 1.2 !important;
+    }
+    
+    .brand-text p {
+        font-size: 10px !important;
+        margin: 2px 0 0 0 !important;
+    }
+    
+    /* Hide navigation on tablets */
+    .main-navigation {
+        display: none !important;
+    }
+    
+    /* Show menu toggle */
+    .menu-toggle {
+        display: block !important;
+    }
+    
+    /* Adjust header actions */
+    .header-actions {
+        gap: 10px !important;
+    }
+    
+    .contact-btn {
+        padding: 8px 16px !important;
+    }
+    
+    .contact-btn a {
+        font-size: 12px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mobile specific fixes */
+    body {
+        padding-top: 80px !important;
+    }
+    
+    /* Hide top bar completely on mobile */
+    .top-bar {
+        display: none !important;
+    }
+    
+    /* Compact main header */
+    .main-header {
+        padding: 8px 0 !important;
+    }
+    
+    /* Mobile logo adjustments */
+    .logo-container {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 5px !important;
+    }
+    
+    .logo-container img {
+        height: 35px !important;
+        max-width: 120px !important;
+    }
+    
+    .site-title {
+        font-size: 16px !important;
+        line-height: 1.1 !important;
+    }
+    
+    .brand-text p {
+        font-size: 9px !important;
+        margin: 2px 0 0 0 !important;
+    }
+    
+    /* Mobile navigation */
+    .main-navigation {
+        position: relative !important;
+    }
+    
+    .main-navigation .nav-menu {
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        box-shadow: var(--shadow);
+        display: none;
+        z-index: 1001;
+        margin-top: 10px;
+    }
+    
+    .main-navigation .nav-menu.active {
+        display: flex;
+    }
+    
+    .main-navigation .nav-menu li {
+        margin: 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .main-navigation .nav-menu a {
+        padding: 15px 20px;
+        display: block;
+        font-size: 16px;
+    }
+    
+    .menu-toggle {
+        display: block !important;
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        padding: 5px;
+    }
+    
+    .menu-toggle span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: var(--text-dark);
+        margin: 5px 0;
+        transition: var(--transition);
+    }
+    
+    /* Mobile header actions */
+    .header-actions {
+        gap: 8px !important;
+        flex-direction: column !important;
+        align-items: flex-end !important;
+    }
+    
+    .search-toggle {
+        padding: 8px !important;
+    }
+    
+    .search-toggle i {
+        font-size: 16px !important;
+    }
+    
+    .contact-btn {
+        padding: 6px 12px !important;
+    }
+    
+    .contact-btn a {
+        font-size: 11px !important;
+    }
+    
+    /* Adjust container padding */
+    .container {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Extra small mobile devices */
+    body {
+        padding-top: 70px !important;
+    }
+    
+    .main-header {
+        padding: 5px 0 !important;
+    }
+    
+    .logo-container img {
+        height: 30px !important;
+        max-width: 100px !important;
+    }
+    
+    .site-title {
+        font-size: 14px !important;
+    }
+    
+    .brand-text p {
+        font-size: 8px !important;
+    }
+    
+    .header-actions {
+        gap: 5px !important;
+    }
+    
+    .contact-btn {
+        padding: 5px 10px !important;
+    }
+    
+    .contact-btn a {
+        font-size: 10px !important;
+    }
+}
+
+/* General responsive fixes */
 @media (max-width: 768px) {
     .hero-title {
         font-size: 40px;
@@ -885,48 +1089,6 @@ section {
     
     .section-title {
         font-size: 32px;
-    }
-    
-    .main-navigation .nav-menu {
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--white);
-        box-shadow: var(--shadow);
-        display: none;
-    }
-    
-    .main-navigation .nav-menu.active {
-        display: flex;
-    }
-    
-    .main-navigation .nav-menu li {
-        margin: 0;
-        border-bottom: 1px solid var(--border-color);
-    }
-    
-    .main-navigation .nav-menu a {
-        padding: 15px 20px;
-        display: block;
-    }
-    
-    .menu-toggle {
-        display: block;
-        background: none;
-        border: none;
-        font-size: 20px;
-        cursor: pointer;
-    }
-    
-    .menu-toggle span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background-color: var(--text-dark);
-        margin: 5px 0;
-        transition: var(--transition);
     }
 }
 
@@ -1156,6 +1318,73 @@ body.shop-page .col-sm-6 {
     body.shop-page .col-xl-3 {
         flex: 0 0 25% !important;
         max-width: 25% !important;
+    }
+}
+
+/* Additional Mobile Header Fixes */
+@media (max-width: 768px) {
+    /* Ensure header doesn't break on mobile */
+    .site-header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 1000 !important;
+        width: 100% !important;
+        background: #ffffff !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+    }
+    
+    /* Mobile menu toggle animation */
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    /* Mobile navigation improvements */
+    .main-navigation .nav-menu {
+        border-radius: 0 0 10px 10px;
+        overflow: hidden;
+    }
+    
+    .main-navigation .nav-menu li:last-child {
+        border-bottom: none;
+    }
+    
+    /* Mobile header layout fixes */
+    .main-header .row {
+        align-items: center !important;
+    }
+    
+    .main-header .col-lg-4,
+    .main-header .col-lg-6,
+    .main-header .col-lg-2 {
+        flex: none !important;
+        width: auto !important;
+        max-width: none !important;
+    }
+    
+    /* Mobile logo and text adjustments */
+    .logo-container {
+        max-width: 200px !important;
+    }
+    
+    .brand-text {
+        max-width: 150px !important;
+    }
+    
+    /* Mobile header actions positioning */
+    .header-actions {
+        position: relative !important;
+        right: 0 !important;
+        margin-right: 0 !important;
     }
 }
 

@@ -17,7 +17,7 @@ get_header(); ?>
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-6">
-                                <h1 class="hero-title">Transform Your Space LOL</h1>
+                                <h1 class="hero-title">Transform Your Space</h1>
                                 <p class="hero-subtitle">Discover our curated collection of premium furniture and home decor that brings style and comfort to your home.</p>
                                 <div class="hero-buttons">
                                     <a href="<?php echo function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop'); ?>" class="btn btn-primary">Shop Now</a>

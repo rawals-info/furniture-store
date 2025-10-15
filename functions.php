@@ -4,7 +4,7 @@
  * A modern, elegant theme for furniture stores
  * 
  * @package FurnitureStylo
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 // Prevent direct access

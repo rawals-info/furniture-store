@@ -7,10 +7,6 @@
 
 get_header(); ?>
 
-<!-- DEBUG: CONTACT PAGE TEMPLATE LOADED - THIS SHOULD BE VISIBLE -->
-<div style="background: red; color: white; padding: 10px; text-align: center; font-weight: bold;">
-    CONTACT PAGE TEMPLATE IS LOADING - IF YOU SEE THIS, THE TEMPLATE IS WORKING
-</div>
 
 <main id="main" class="site-main contact-page" style="padding-top: 0 !important; margin-top: 0 !important;">
     <!-- Contact Hero -->
@@ -26,88 +22,80 @@ get_header(); ?>
     </section>
 
     <!-- Contact Content -->
-    <div class="contact-content">
-        <div class="container">
-            <div class="row">
-                <!-- Contact Info -->
-                <div class="col-lg-4">
-                    <div class="contact-info">
-                        <h3>Get In Touch</h3>
-                        <p>We're here to help you find the perfect furniture for your home. Contact us for personalized assistance.</p>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
+    <div class="contact-content" style="padding: 60px 0; background: #f8f9fa;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div class="contact-layout" style="display: flex; gap: 40px; align-items: flex-start;">
+                
+                <!-- Contact Info Panel -->
+                <div class="contact-info-panel" style="flex: 0 0 35%; background: #fff; border-radius: 15px; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); position: relative;">
+                    <h3 style="font-size: 28px; color: #2C2C2C; margin-bottom: 20px; font-family: 'Playfair Display', serif;">Get In Touch</h3>
+                    <p style="color: #666; margin-bottom: 30px; line-height: 1.6;">We're here to help you find the perfect furniture for your home. Contact us for personalized assistance.</p>
+                    
+                    <div class="contact-item" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: flex-start;">
+                        <div class="contact-icon" style="width: 50px; height: 50px; background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; flex-shrink: 0;">
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div class="contact-details">
-                                <h4>Visit Our Showroom</h4>
-                                <p>1456 Dundas St E<br>Mississauga, ON L4X 1L4</p>
-                            </div>
+                            <h4 style="color: #2C2C2C; margin-bottom: 8px; font-size: 18px;">Visit Our Showroom</h4>
+                            <p style="color: #666; margin: 0; line-height: 1.5;">1456 Dundas St E<br>Mississauga, ON L4X 1L4</p>
+                        </div>
                         </div>
                         
-                        <div class="contact-item">
-                            <div class="contact-icon">
+                    <div class="contact-item" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: flex-start;">
+                        <div class="contact-icon" style="width: 50px; height: 50px; background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; flex-shrink: 0;">
                                 <i class="fas fa-phone"></i>
                             </div>
                             <div class="contact-details">
-                                <h4>Call Us</h4>
-                                <p>(905) 270-0666<br>Mon-Thu: 10:30AM-8:30PM<br>Fri-Sun: 11AM-7PM</p>
-                            </div>
+                            <h4 style="color: #2C2C2C; margin-bottom: 8px; font-size: 18px;">Call Us</h4>
+                            <p style="color: #666; margin: 0; line-height: 1.5;">(905) 270-0666<br>Mon-Thu: 10:30AM-8:30PM<br>Fri-Sun: 11AM-7PM</p>
+                        </div>
                         </div>
                         
-                        <div class="contact-item">
-                            <div class="contact-icon">
+                    <div class="contact-item" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: flex-start;">
+                        <div class="contact-icon" style="width: 50px; height: 50px; background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; flex-shrink: 0;">
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div class="contact-details">
-                                <h4>Email Us</h4>
-                                <p>stylofurniture1456@gmail.com<br>We'll respond within 24 hours</p>
-                            </div>
+                            <h4 style="color: #2C2C2C; margin-bottom: 8px; font-size: 18px;">Email Us</h4>
+                            <p style="color: #666; margin: 0; line-height: 1.5;">stylofurniture1456@gmail.com<br>We'll respond within 24 hours</p>
+                        </div>
                         </div>
                         
-                        <div class="social-links">
-                            <h4>Follow Us</h4>
-                            <div class="social-icons">
-                                <a href="#"><i class="fab fa-facebook"></i></a>
-                                <a href="#"><i class="fab fa-instagram"></i></a>
-                                <a href="#"><i class="fab fa-pinterest"></i></a>
-                                <a href="#"><i class="fab fa-youtube"></i></a>
-                            </div>
+                    <div class="social-links" style="margin-top: 30px; padding-top: 30px; border-top: 1px solid #eee;">
+                        <h4 style="color: #2C2C2C; margin-bottom: 15px;">Follow Us</h4>
+                        <div class="social-icons" style="display: flex; gap: 15px; flex-wrap: wrap;">
+                            <a href="#" style="width: 40px; height: 40px; background: #f8f9fa; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #8B4513; transition: all 0.3s ease; text-decoration: none;"><i class="fab fa-facebook"></i></a>
+                            <a href="#" style="width: 40px; height: 40px; background: #f8f9fa; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #8B4513; transition: all 0.3s ease; text-decoration: none;"><i class="fab fa-instagram"></i></a>
+                            <a href="#" style="width: 40px; height: 40px; background: #f8f9fa; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #8B4513; transition: all 0.3s ease; text-decoration: none;"><i class="fab fa-pinterest"></i></a>
+                            <a href="#" style="width: 40px; height: 40px; background: #f8f9fa; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #8B4513; transition: all 0.3s ease; text-decoration: none;"><i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Contact Form -->
-                <div class="col-lg-8">
-                    <div class="contact-form-wrapper">
-                        <h3>Send Us a Message</h3>
-                        <form class="contact-form" id="contact-form">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="name">Full Name *</label>
-                                        <input type="text" id="name" name="name" required>
+                <!-- Contact Form Panel -->
+                <div class="contact-form-panel" style="flex: 0 0 60%; background: #fff; border-radius: 15px; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); position: relative;">
+                    <h3 style="font-size: 28px; color: #2C2C2C; margin-bottom: 30px; font-family: 'Playfair Display', serif;">Send Us a Message</h3>
+                    
+                    <form class="contact-form" id="contact-form" style="position: relative;">
+                        <div class="form-row" style="display: flex; gap: 20px; margin-bottom: 25px;">
+                            <div class="form-group" style="flex: 1; position: relative;">
+                                <label for="name" style="display: block; margin-bottom: 10px; color: #2C2C2C; font-weight: 500; font-size: 14px;">Full Name *</label>
+                                <input type="text" id="name" name="name" required style="width: 100%; padding: 15px; border: 2px solid #e5e5e5; border-radius: 8px; font-size: 16px; background-color: #fff; box-sizing: border-box;">
+                                    </div>
+                            <div class="form-group" style="flex: 1; position: relative;">
+                                <label for="email" style="display: block; margin-bottom: 10px; color: #2C2C2C; font-weight: 500; font-size: 14px;">Email Address *</label>
+                                <input type="email" id="email" name="email" required style="width: 100%; padding: 15px; border: 2px solid #e5e5e5; border-radius: 8px; font-size: 16px; background-color: #fff; box-sizing: border-box;">
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="email">Email Address *</label>
-                                        <input type="email" id="email" name="email" required>
-                                    </div>
-                                </div>
+                        
+                        <div class="form-row" style="display: flex; gap: 20px; margin-bottom: 25px;">
+                            <div class="form-group" style="flex: 1; position: relative;">
+                                <label for="phone" style="display: block; margin-bottom: 10px; color: #2C2C2C; font-weight: 500; font-size: 14px;">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" style="width: 100%; padding: 15px; border: 2px solid #e5e5e5; border-radius: 8px; font-size: 16px; background-color: #fff; box-sizing: border-box;">
                             </div>
-                            
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="phone">Phone Number</label>
-                                        <input type="tel" id="phone" name="phone">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="subject">Subject *</label>
-                                        <select id="subject" name="subject" required>
+                            <div class="form-group" style="flex: 1; position: relative;">
+                                <label for="subject" style="display: block; margin-bottom: 10px; color: #2C2C2C; font-weight: 500; font-size: 14px;">Subject *</label>
+                                <select id="subject" name="subject" required style="width: 100%; padding: 15px; border: 2px solid #e5e5e5; border-radius: 8px; font-size: 16px; background-color: #fff; box-sizing: border-box;">
                                             <option value="">Select a subject</option>
                                             <option value="general">General Inquiry</option>
                                             <option value="product">Product Information</option>
@@ -115,23 +103,22 @@ get_header(); ?>
                                             <option value="delivery">Delivery Information</option>
                                             <option value="support">Customer Support</option>
                                         </select>
-                                    </div>
                                 </div>
                             </div>
                             
-                            <div class="form-group">
-                                <label for="message">Message *</label>
-                                <textarea id="message" name="message" rows="6" required placeholder="Tell us about your furniture needs..."></textarea>
+                        <div class="form-group" style="margin-bottom: 30px; position: relative;">
+                            <label for="message" style="display: block; margin-bottom: 10px; color: #2C2C2C; font-weight: 500; font-size: 14px;">Message *</label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Tell us about your furniture needs..." style="width: 100%; padding: 15px; border: 2px solid #e5e5e5; border-radius: 8px; font-size: 16px; background-color: #fff; resize: vertical; min-height: 120px; box-sizing: border-box;"></textarea>
                             </div>
                             
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-lg">
+                            <button type="submit" class="btn btn-primary btn-lg" style="background-color: #8B4513; border-color: #8B4513; color: white; padding: 15px 30px; font-size: 16px; border-radius: 8px; transition: all 0.3s ease; border: none; cursor: pointer;">
                                     <i class="fas fa-paper-plane"></i> Send Message
                                 </button>
                             </div>
                         </form>
                     </div>
-                </div>
+                
             </div>
         </div>
     </div>
@@ -212,6 +199,7 @@ get_header(); ?>
 </main>
 
 <style>
+/* Contact Page Specific Styles - Fixed Layout Issues */
 .contact-page {
     padding-top: 0px;
 }
@@ -317,35 +305,40 @@ get_header(); ?>
     margin-bottom: 80px;
 }
 
-.contact-info {
+/* FIXED: Contact Info Panel - Proper positioning and spacing */
+.contact-content .contact-info {
     background: #fff;
     border-radius: 15px;
     padding: 40px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.1);
     height: fit-content;
+    position: relative;
+    z-index: 1;
 }
 
-.contact-info h3 {
+.contact-content .contact-info h3 {
     font-size: 28px;
     color: #2C2C2C;
     margin-bottom: 20px;
     font-family: 'Playfair Display', serif;
 }
 
-.contact-info > p {
+.contact-content .contact-info > p {
     color: #666;
     margin-bottom: 30px;
     line-height: 1.6;
 }
 
-.contact-item {
+.contact-content .contact-item {
     display: flex;
     gap: 20px;
     margin-bottom: 30px;
     align-items: flex-start;
+    position: relative;
+    z-index: 2;
 }
 
-.contact-icon {
+.contact-content .contact-icon {
     width: 50px;
     height: 50px;
     background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
@@ -358,35 +351,39 @@ get_header(); ?>
     flex-shrink: 0;
 }
 
-.contact-details h4 {
+.contact-content .contact-details h4 {
     color: #2C2C2C;
     margin-bottom: 8px;
     font-size: 18px;
 }
 
-.contact-details p {
+.contact-content .contact-details p {
     color: #666;
     margin: 0;
     line-height: 1.5;
 }
 
-.social-links {
+/* FIXED: Social Links - Proper positioning and isolation */
+.contact-content .social-links {
     margin-top: 30px;
     padding-top: 30px;
     border-top: 1px solid #eee;
+    position: relative;
+    z-index: 3;
 }
 
-.social-links h4 {
+.contact-content .social-links h4 {
     color: #2C2C2C;
     margin-bottom: 15px;
 }
 
-.social-icons {
+.contact-content .social-icons {
     display: flex;
     gap: 15px;
+    flex-wrap: wrap;
 }
 
-.social-icons a {
+.contact-content .social-icons a {
     width: 40px;
     height: 40px;
     background: #f8f9fa;
@@ -396,60 +393,102 @@ get_header(); ?>
     justify-content: center;
     color: #8B4513;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
-.social-icons a:hover {
+.contact-content .social-icons a:hover {
     background: #8B4513;
     color: white;
     transform: translateY(-2px);
 }
 
-.contact-form-wrapper {
+/* FIXED: Contact Form Wrapper - Proper grid layout and spacing */
+.contact-content .contact-form-wrapper {
     background: #fff;
     border-radius: 15px;
     padding: 40px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1;
 }
 
-.contact-form-wrapper h3 {
+.contact-content .contact-form-wrapper h3 {
     font-size: 28px;
     color: #2C2C2C;
     margin-bottom: 30px;
     font-family: 'Playfair Display', serif;
 }
 
-.form-group {
+/* FIXED: Form Groups - Proper spacing and no overlapping */
+.contact-content .form-group {
     margin-bottom: 25px;
+    position: relative;
+    z-index: 2;
 }
 
-.form-group label {
+.contact-content .form-group label {
     display: block;
     margin-bottom: 8px;
     color: #2C2C2C;
     font-weight: 500;
+    position: relative;
+    z-index: 3;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
+.contact-content .form-group input,
+.contact-content .form-group select,
+.contact-content .form-group textarea {
     width: 100%;
     padding: 15px;
     border: 2px solid #e5e5e5;
     border-radius: 8px;
     font-size: 16px;
     transition: border-color 0.3s ease;
+    position: relative;
+    z-index: 2;
+    background-color: #fff;
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
+.contact-content .form-group input:focus,
+.contact-content .form-group select:focus,
+.contact-content .form-group textarea:focus {
     outline: none;
     border-color: #8B4513;
 }
 
-.form-group textarea {
+.contact-content .form-group textarea {
     resize: vertical;
     min-height: 120px;
+}
+
+/* FIXED: Bootstrap Grid Overrides for Contact Form */
+.contact-content .row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.contact-content .col-md-6 {
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+/* FIXED: Button Styling */
+.contact-content .btn-primary {
+    background-color: #8B4513;
+    border-color: #8B4513;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.contact-content .btn-primary:hover {
+    background-color: #A0522D;
+    border-color: #A0522D;
+    transform: translateY(-2px);
 }
 
 .map-section {
@@ -557,19 +596,26 @@ get_header(); ?>
     line-height: 1.6;
 }
 
+/* FIXED: Mobile Responsive Design */
 @media (max-width: 768px) {
     .page-title {
         font-size: 36px;
     }
     
-    .contact-info,
-    .contact-form-wrapper {
+    .contact-content .contact-info,
+    .contact-content .contact-form-wrapper {
         padding: 25px;
+        margin-bottom: 30px;
     }
     
-    .contact-item {
+    .contact-content .contact-item {
         flex-direction: column;
         text-align: center;
+        gap: 15px;
+    }
+    
+    .contact-content .social-icons {
+        justify-content: center;
     }
     
     .faq-question {
@@ -582,6 +628,197 @@ get_header(); ?>
     
     .faq-item.active .faq-answer {
         padding: 0 20px 20px;
+    }
+}
+
+/* CRITICAL: Prevent any overlapping issues - ULTRA HIGH SPECIFICITY */
+body.contact-page .contact-content * {
+    box-sizing: border-box !important;
+}
+
+body.contact-page .contact-content .row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin-left: -15px !important;
+    margin-right: -15px !important;
+    width: 100% !important;
+}
+
+body.contact-page .contact-content .col-lg-4,
+body.contact-page .contact-content .col-lg-8 {
+    position: relative !important;
+    width: 100% !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    float: none !important;
+    clear: none !important;
+}
+
+/* FORCE PROPER LAYOUT - OVERRIDE ALL BOOTSTRAP CONFLICTS */
+body.contact-page .contact-content .container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 15px !important;
+}
+
+body.contact-page .contact-content .row {
+    margin: 0 -15px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
+
+body.contact-page .contact-content .col-lg-4 {
+    flex: 0 0 33.333333% !important;
+    max-width: 33.333333% !important;
+    padding: 0 15px !important;
+    margin-bottom: 30px !important;
+}
+
+body.contact-page .contact-content .col-lg-8 {
+    flex: 0 0 66.666667% !important;
+    max-width: 66.666667% !important;
+    padding: 0 15px !important;
+}
+
+/* FORCE CONTACT INFO PANEL LAYOUT */
+body.contact-page .contact-content .contact-info {
+    background: #fff !important;
+    border-radius: 15px !important;
+    padding: 40px !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1) !important;
+    height: auto !important;
+    position: relative !important;
+    z-index: 1 !important;
+    margin-bottom: 0 !important;
+    overflow: visible !important;
+}
+
+/* FORCE CONTACT FORM LAYOUT */
+body.contact-page .contact-content .contact-form-wrapper {
+    background: #fff !important;
+    border-radius: 15px !important;
+    padding: 40px !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1) !important;
+    position: relative !important;
+    z-index: 1 !important;
+    margin-bottom: 0 !important;
+    overflow: visible !important;
+}
+
+/* FORCE FORM ELEMENTS TO NOT OVERLAP */
+body.contact-page .contact-content .form-group {
+    margin-bottom: 25px !important;
+    position: relative !important;
+    z-index: 2 !important;
+    clear: both !important;
+    overflow: visible !important;
+}
+
+body.contact-page .contact-content .form-group label {
+    display: block !important;
+    margin-bottom: 8px !important;
+    color: #2C2C2C !important;
+    font-weight: 500 !important;
+    position: relative !important;
+    z-index: 3 !important;
+    clear: both !important;
+}
+
+body.contact-page .contact-content .form-group input,
+body.contact-page .contact-content .form-group select,
+body.contact-page .contact-content .form-group textarea {
+    width: 100% !important;
+    padding: 15px !important;
+    border: 2px solid #e5e5e5 !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    transition: border-color 0.3s ease !important;
+    position: relative !important;
+    z-index: 2 !important;
+    background-color: #fff !important;
+    margin-bottom: 0 !important;
+    clear: both !important;
+}
+
+/* FORCE SOCIAL ICONS TO STAY IN PLACE */
+body.contact-page .contact-content .social-links {
+    margin-top: 30px !important;
+    padding-top: 30px !important;
+    border-top: 1px solid #eee !important;
+    position: relative !important;
+    z-index: 3 !important;
+    clear: both !important;
+    overflow: visible !important;
+}
+
+body.contact-page .contact-content .social-icons {
+    display: flex !important;
+    gap: 15px !important;
+    flex-wrap: wrap !important;
+    position: relative !important;
+    z-index: 3 !important;
+}
+
+body.contact-page .contact-content .social-icons a {
+    width: 40px !important;
+    height: 40px !important;
+    background: #f8f9fa !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #8B4513 !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none !important;
+    position: relative !important;
+    z-index: 3 !important;
+}
+
+/* MOBILE RESPONSIVE FIXES */
+@media (max-width: 991px) {
+    .contact-layout {
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+    
+    .contact-info-panel,
+    .contact-form-panel {
+        flex: none !important;
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-content {
+        padding: 40px 0 !important;
+    }
+    
+    .container {
+        padding: 0 15px !important;
+    }
+    
+    .contact-info-panel,
+    .contact-form-panel {
+        padding: 25px !important;
+    }
+    
+    .contact-item {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 15px !important;
+    }
+    
+    .social-icons {
+        justify-content: center !important;
+    }
+    
+    .form-row {
+        flex-direction: column !important;
+        gap: 0 !important;
+    }
+    
+    .form-group {
+        margin-bottom: 20px !important;
     }
 }
 </style>
