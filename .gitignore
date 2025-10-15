@@ -1,0 +1,46 @@
+# WordPress Theme .gitignore
+
+# Compiled CSS/JS
+*.min.css
+*.min.js
+*.map
+
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build tools
+.sass-cache/
+.cache/
+dist/
+build/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Package manager files
+package-lock.json
+yarn.lock
