@@ -12,6 +12,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo esc_url(home_url('/wp-content/uploads/2025/10/logo_stylo.png')); ?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo esc_url(home_url('/wp-content/uploads/2025/10/logo_stylo.png')); ?>">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo esc_url(home_url('/wp-content/uploads/2025/10/logo_stylo.png')); ?>">
+    <link rel="shortcut icon" href="<?php echo esc_url(home_url('/wp-content/uploads/2025/10/logo_stylo.png')); ?>">
+    <meta name="theme-color" content="#8B4513">
+    
     <!-- SEO Meta Tags -->
     <meta name="description" content="<?php 
         if (is_home() || is_front_page()) {
