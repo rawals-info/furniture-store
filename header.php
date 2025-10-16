@@ -11,6 +11,122 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="<?php 
+        if (is_home() || is_front_page()) {
+            echo 'Premium furniture and mattresses in Mississauga. Quality dining tables, beds, living room sets, and home decor. Visit our showroom at 1456 Dundas St E. Call (905) 270-0666.';
+        } elseif (is_product_category()) {
+            $category = get_queried_object();
+            echo 'Shop ' . $category->name . ' furniture in Mississauga. Premium quality ' . strtolower($category->name) . ' at New Stylo Furniture. Free delivery within 25 miles.';
+        } elseif (is_page('about')) {
+            echo 'About New Stylo Furniture & Mattress in Mississauga. Premium furniture store with quality beds, dining tables, and living room sets. Family-owned business since 2020.';
+        } elseif (is_page('contact')) {
+            echo 'Contact New Stylo Furniture in Mississauga. Visit our showroom at 1456 Dundas St E or call (905) 270-0666. Free delivery within 25 miles. Open 7 days a week.';
+        } else {
+            echo 'Premium furniture and mattresses in Mississauga. Quality dining tables, beds, living room sets, and home decor at New Stylo Furniture.';
+        }
+    ?>">
+    
+    <meta name="keywords" content="furniture Mississauga, dining tables, beds, mattresses, living room furniture, home decor, furniture store Mississauga, New Stylo Furniture, premium furniture, quality furniture">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="<?php 
+        if (is_home() || is_front_page()) {
+            echo 'New Stylo Furniture & Mattress - Premium Furniture in Mississauga';
+        } elseif (is_product_category()) {
+            $category = get_queried_object();
+            echo $category->name . ' Furniture - New Stylo Furniture Mississauga';
+        } else {
+            echo wp_get_document_title();
+        }
+    ?>">
+    
+    <meta property="og:description" content="<?php 
+        if (is_home() || is_front_page()) {
+            echo 'Premium furniture and mattresses in Mississauga. Quality dining tables, beds, living room sets, and home decor. Visit our showroom at 1456 Dundas St E.';
+        } elseif (is_product_category()) {
+            $category = get_queried_object();
+            echo 'Shop ' . $category->name . ' furniture in Mississauga. Premium quality ' . strtolower($category->name) . ' at New Stylo Furniture.';
+        } else {
+            echo 'Premium furniture and mattresses in Mississauga. Quality furniture store with showroom at 1456 Dundas St E.';
+        }
+    ?>">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<?php echo home_url($_SERVER['REQUEST_URI']); ?>">
+    <meta property="og:site_name" content="New Stylo Furniture & Mattress">
+    <meta property="og:locale" content="en_CA">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<?php echo wp_get_document_title(); ?>">
+    <meta name="twitter:description" content="<?php 
+        if (is_home() || is_front_page()) {
+            echo 'Premium furniture and mattresses in Mississauga. Quality dining tables, beds, living room sets, and home decor.';
+        } else {
+            echo 'Premium furniture and mattresses in Mississauga. Quality furniture store with showroom at 1456 Dundas St E.';
+        }
+    ?>">
+    
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FurnitureStore",
+        "name": "New Stylo Furniture & Mattress",
+        "description": "Premium furniture and mattresses in Mississauga. Quality dining tables, beds, living room sets, and home decor.",
+        "url": "<?php echo home_url(); ?>",
+        "logo": "<?php echo esc_url(home_url('/wp-content/uploads/2025/10/logo_stylo.png')); ?>",
+        "image": "<?php echo esc_url(home_url('/wp-content/uploads/2025/10/logo_stylo.png')); ?>",
+        "telephone": "(905) 270-0666",
+        "email": "stylofurniture1456@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "1456 Dundas St E",
+            "addressLocality": "Mississauga",
+            "addressRegion": "ON",
+            "postalCode": "L4X 1L4",
+            "addressCountry": "CA"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "43.6532",
+            "longitude": "-79.3832"
+        },
+        "openingHours": [
+            "Mo-Th 10:30-20:30",
+            "Fr-Su 11:00-19:00"
+        ],
+        "priceRange": "$$",
+        "paymentAccepted": "Cash, Credit Card, Debit Card",
+        "currenciesAccepted": "CAD",
+        "areaServed": {
+            "@type": "City",
+            "name": "Mississauga"
+        },
+        "sameAs": [
+            "https://www.instagram.com/newstylofurniture",
+            "https://www.tiktok.com/@newstylofurniture"
+        ]
+    }
+    </script>
+    
+    <!-- Website Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "New Stylo Furniture & Mattress",
+        "url": "<?php echo home_url(); ?>",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "<?php echo home_url(); ?>/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    
     <?php wp_head(); ?>
 </head>
 

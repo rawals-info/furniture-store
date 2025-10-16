@@ -131,3 +131,145 @@ function furniture_stylo_fallback_menu() {
     echo '<li><a href="/about">About</a></li>';
     echo '</ul>';
 }
+
+// SEO Optimized Page Titles
+function furniture_stylo_document_title_parts($title) {
+    if (is_home() || is_front_page()) {
+        $title['title'] = 'New Stylo Furniture & Mattress - Premium Furniture in Mississauga';
+        $title['tagline'] = 'Quality Dining Tables, Beds & Living Room Sets';
+    } elseif (is_product_category()) {
+        $category = get_queried_object();
+        $title['title'] = $category->name . ' Furniture - New Stylo Furniture Mississauga';
+        $title['tagline'] = 'Premium ' . $category->name . ' Collection';
+    } elseif (is_page('about')) {
+        $title['title'] = 'About Us - New Stylo Furniture & Mattress Mississauga';
+        $title['tagline'] = 'Premium Furniture Store Since 2020';
+    } elseif (is_page('contact')) {
+        $title['title'] = 'Contact Us - New Stylo Furniture Mississauga';
+        $title['tagline'] = 'Visit Our Showroom at 1456 Dundas St E';
+    } elseif (is_shop()) {
+        $title['title'] = 'Shop All Furniture - New Stylo Furniture Mississauga';
+        $title['tagline'] = 'Premium Furniture & Mattresses';
+    }
+    
+    return $title;
+}
+add_filter('document_title_parts', 'furniture_stylo_document_title_parts');
+
+// Add SEO title separator
+function furniture_stylo_document_title_separator($separator) {
+    return ' | ';
+}
+add_filter('document_title_separator', 'furniture_stylo_document_title_separator');
+
+// Add canonical URLs for better SEO
+function furniture_stylo_canonical_url() {
+    if (is_home() || is_front_page()) {
+        echo '<link rel="canonical" href="' . home_url() . '" />' . "\n";
+    } elseif (is_product_category()) {
+        $category = get_queried_object();
+        echo '<link rel="canonical" href="' . get_term_link($category) . '" />' . "\n";
+    } elseif (is_page()) {
+        echo '<link rel="canonical" href="' . get_permalink() . '" />' . "\n";
+    }
+}
+add_action('wp_head', 'furniture_stylo_canonical_url');
+
+// Add hreflang for Canadian market
+function furniture_stylo_hreflang() {
+    echo '<link rel="alternate" hreflang="en-ca" href="' . home_url() . '" />' . "\n";
+}
+add_action('wp_head', 'furniture_stylo_hreflang');
+
+// Optimize images with proper alt tags
+function furniture_stylo_optimize_images($content) {
+    // Add alt tags to images that don't have them
+    $content = preg_replace_callback('/<img([^>]*?)(?:\s+alt\s*=\s*["\']([^"\']*)["\'])?([^>]*?)>/i', function($matches) {
+        $before_alt = $matches[1];
+        $alt_text = isset($matches[2]) ? $matches[2] : '';
+        $after_alt = $matches[3];
+        
+        // If no alt text, add descriptive alt text
+        if (empty($alt_text)) {
+            $alt_text = 'Premium furniture from New Stylo Furniture & Mattress in Mississauga';
+        }
+        
+        return '<img' . $before_alt . ' alt="' . esc_attr($alt_text) . '"' . $after_alt . '>';
+    }, $content);
+    
+    return $content;
+}
+add_filter('the_content', 'furniture_stylo_optimize_images');
+
+// Add breadcrumb schema
+function furniture_stylo_breadcrumb_schema() {
+    if (is_product_category()) {
+        $category = get_queried_object();
+        echo '<script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "' . home_url() . '"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Shop",
+                    "item": "' . wc_get_page_permalink('shop') . '"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "' . esc_js($category->name) . '",
+                    "item": "' . get_term_link($category) . '"
+                }
+            ]
+        }
+        </script>';
+    }
+}
+add_action('wp_head', 'furniture_stylo_breadcrumb_schema');
+
+// Add robots.txt content
+function furniture_stylo_robots_txt($output) {
+    $output .= "Sitemap: " . home_url() . "/sitemap.xml\n";
+    $output .= "Disallow: /wp-admin/\n";
+    $output .= "Disallow: /wp-includes/\n";
+    $output .= "Allow: /wp-content/uploads/\n";
+    return $output;
+}
+add_filter('robots_txt', 'furniture_stylo_robots_txt');
+
+// Add image optimization and lazy loading
+function furniture_stylo_add_image_attributes($attr, $attachment, $size) {
+    // Add loading="lazy" for better performance
+    if (!isset($attr['loading'])) {
+        $attr['loading'] = 'lazy';
+    }
+    
+    // Add proper alt text if missing
+    if (empty($attr['alt'])) {
+        $attr['alt'] = 'Premium furniture from New Stylo Furniture & Mattress in Mississauga';
+    }
+    
+    return $attr;
+}
+add_filter('wp_get_attachment_image_attributes', 'furniture_stylo_add_image_attributes', 10, 3);
+
+// Add preload for critical resources
+function furniture_stylo_preload_resources() {
+    echo '<link rel="preload" href="' . get_template_directory_uri() . '/assets/css/custom.css" as="style">' . "\n";
+    echo '<link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" as="style">' . "\n";
+}
+add_action('wp_head', 'furniture_stylo_preload_resources', 1);
+
+// Add meta viewport for mobile optimization
+function furniture_stylo_viewport_meta() {
+    echo '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">' . "\n";
+}
+add_action('wp_head', 'furniture_stylo_viewport_meta', 1);

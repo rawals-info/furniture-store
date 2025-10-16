@@ -7,6 +7,93 @@
 
 get_header(); ?>
 
+<!-- Local Business Schema for Contact Page -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact New Stylo Furniture & Mattress",
+    "description": "Contact New Stylo Furniture in Mississauga. Visit our showroom at 1456 Dundas St E or call (905) 270-0666. Free delivery within 25 miles.",
+    "url": "<?php echo get_permalink(); ?>",
+    "mainEntity": {
+        "@type": "FurnitureStore",
+        "name": "New Stylo Furniture & Mattress",
+        "description": "Premium furniture and mattresses in Mississauga. Quality dining tables, beds, living room sets, and home decor.",
+        "url": "<?php echo home_url(); ?>",
+        "telephone": "(905) 270-0666",
+        "email": "stylofurniture1456@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "1456 Dundas St E",
+            "addressLocality": "Mississauga",
+            "addressRegion": "ON",
+            "postalCode": "L4X 1L4",
+            "addressCountry": "CA"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "43.6532",
+            "longitude": "-79.3832"
+        },
+        "openingHours": [
+            "Mo-Th 10:30-20:30",
+            "Fr-Su 11:00-19:00"
+        ],
+        "areaServed": [
+            {
+                "@type": "City",
+                "name": "Mississauga"
+            },
+            {
+                "@type": "City", 
+                "name": "Toronto"
+            },
+            {
+                "@type": "City",
+                "name": "Brampton"
+            },
+            {
+                "@type": "City",
+                "name": "Oakville"
+            }
+        ],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Furniture & Mattresses",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Product",
+                        "name": "Dining Tables"
+                    }
+                },
+                {
+                    "@type": "Offer", 
+                    "itemOffered": {
+                        "@type": "Product",
+                        "name": "Beds & Mattresses"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Product", 
+                        "name": "Living Room Furniture"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Product",
+                        "name": "Home Decor"
+                    }
+                }
+            ]
+        }
+    }
+}
+</script>
 
 <main id="main" class="site-main contact-page" style="padding-top: 0 !important; margin-top: 0 !important;">
     <!-- Contact Hero -->

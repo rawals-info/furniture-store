@@ -16,7 +16,65 @@ add_filter('loop_shop_per_page', function() use ($products_per_page) {
     return $products_per_page;
 });
 
-get_header(); ?>
+get_header(); 
+
+// Get current category for SEO
+$current_category = get_queried_object();
+?>
+
+<!-- Product Category Schema -->
+<?php if ($current_category && !is_wp_error($current_category)): ?>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "<?php echo esc_js($current_category->name); ?> Furniture - New Stylo Furniture",
+    "description": "Shop premium <?php echo esc_js(strtolower($current_category->name)); ?> furniture in Mississauga. Quality <?php echo esc_js(strtolower($current_category->name)); ?> at New Stylo Furniture & Mattress.",
+    "url": "<?php echo esc_url(get_term_link($current_category)); ?>",
+    "mainEntity": {
+        "@type": "ItemList",
+        "name": "<?php echo esc_js($current_category->name); ?> Furniture Collection",
+        "description": "Premium <?php echo esc_js(strtolower($current_category->name)); ?> furniture available at New Stylo Furniture in Mississauga",
+        "numberOfItems": "<?php echo $current_category->count; ?>",
+        "itemListElement": [
+            <?php
+            $products = wc_get_products(array(
+                'category' => array($current_category->slug),
+                'limit' => 10,
+                'status' => 'publish'
+            ));
+            
+            $product_schemas = array();
+            foreach ($products as $index => $product) {
+                $product_schemas[] = '{
+                    "@type": "Product",
+                    "name": "' . esc_js($product->get_name()) . '",
+                    "description": "' . esc_js(wp_strip_all_tags($product->get_short_description() ?: $product->get_description())) . '",
+                    "url": "' . esc_url($product->get_permalink()) . '",
+                    "image": "' . esc_url(wp_get_attachment_image_url($product->get_image_id(), 'large')) . '",
+                    "brand": {
+                        "@type": "Brand",
+                        "name": "New Stylo Furniture"
+                    },
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "' . $product->get_price() . '",
+                        "priceCurrency": "CAD",
+                        "availability": "' . ($product->is_in_stock() ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock') . '",
+                        "seller": {
+                            "@type": "Organization",
+                            "name": "New Stylo Furniture & Mattress"
+                        }
+                    }
+                }';
+            }
+            echo implode(',', $product_schemas);
+            ?>
+        ]
+    }
+}
+</script>
+<?php endif; ?>
 
 <main id="main" class="site-main shop-page woocommerce-page" style="padding-top: 0 !important; margin-top: 0 !important;">
     <!-- Shop Hero Section -->
