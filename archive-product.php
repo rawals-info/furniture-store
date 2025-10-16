@@ -20,7 +20,7 @@ get_header(); ?>
 
 <main id="main" class="site-main shop-page woocommerce-page" style="padding-top: 0 !important; margin-top: 0 !important;">
     <!-- Shop Hero Section -->
-    <section class="shop-hero" style="margin-top: 0 !important; padding-top: 20px !important;">
+    <section class="shop-hero" style="margin-top: 0 !important; padding-top: 80px !important; padding-bottom: 60px !important;">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">

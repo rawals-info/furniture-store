@@ -20,7 +20,7 @@ get_header(); ?>
 
 <main id="main" class="site-main shop-page">
     <!-- Shop Hero Section -->
-    <section class="shop-hero">
+    <section class="shop-hero" style="padding-top: 80px !important; padding-bottom: 60px !important;">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">

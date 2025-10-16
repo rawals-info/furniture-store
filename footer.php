@@ -13,7 +13,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-widget">
                             <div class="footer-logo" style="margin-bottom: 20px;">
-                                <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/10/logo_stylo.png')); ?>" alt="<?php bloginfo('name'); ?>" style="height: 50px; width: auto; max-width: 180px; object-fit: contain; filter: brightness(0) invert(1);">
+                                <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/10/logo_stylo.png')); ?>" alt="<?php bloginfo('name'); ?>" style="height: 60px; width: auto; max-width: 200px; object-fit: contain;">
                             </div>
                             <p style="color: #ccc; margin-bottom: 20px;">We provide high-quality furniture and home decor solutions for modern living. Our curated collection brings style and comfort to your home.</p>
                             <div class="social-links">

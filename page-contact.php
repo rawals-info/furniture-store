@@ -37,8 +37,12 @@ get_header(); ?>
                             </div>
                             <div class="contact-details">
                             <h4 style="color: #2C2C2C; margin-bottom: 8px; font-size: 18px;">Visit Our Showroom</h4>
-                            <p style="color: #666; margin: 0; line-height: 1.5;">1456 Dundas St E<br>Mississauga, ON L4X 1L4</p>
-                        </div>
+                            <p style="color: #666; margin: 0; line-height: 1.5;">
+                                <a href="https://maps.google.com/?q=1456+Dundas+St+E,+Mississauga,+ON+L4X+1L4" target="_blank" style="color: #8B4513; text-decoration: none; transition: color 0.3s ease;">
+                                    1456 Dundas St E<br>Mississauga, ON L4X 1L4
+                                </a>
+                            </p>
+                            </div>
                         </div>
                         
                     <div class="contact-item" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: flex-start;">
@@ -47,8 +51,11 @@ get_header(); ?>
                             </div>
                             <div class="contact-details">
                             <h4 style="color: #2C2C2C; margin-bottom: 8px; font-size: 18px;">Call Us</h4>
-                            <p style="color: #666; margin: 0; line-height: 1.5;">(905) 270-0666<br>Mon-Thu: 10:30AM-8:30PM<br>Fri-Sun: 11AM-7PM</p>
-                        </div>
+                            <p style="color: #666; margin: 0; line-height: 1.5;">
+                                <a href="tel:+19052700666" style="color: #8B4513; text-decoration: none; transition: color 0.3s ease; font-weight: 600;">(905) 270-0666</a><br>
+                                Mon-Thu: 10:30AM-8:30PM<br>Fri-Sun: 11AM-7PM
+                            </p>
+                            </div>
                         </div>
                         
                     <div class="contact-item" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: flex-start;">
@@ -57,8 +64,11 @@ get_header(); ?>
                             </div>
                             <div class="contact-details">
                             <h4 style="color: #2C2C2C; margin-bottom: 8px; font-size: 18px;">Email Us</h4>
-                            <p style="color: #666; margin: 0; line-height: 1.5;">stylofurniture1456@gmail.com<br>We'll respond within 24 hours</p>
-                        </div>
+                            <p style="color: #666; margin: 0; line-height: 1.5;">
+                                <a href="mailto:stylofurniture1456@gmail.com" style="color: #8B4513; text-decoration: none; transition: color 0.3s ease; font-weight: 600;">stylofurniture1456@gmail.com</a><br>
+                                We'll respond within 24 hours
+                            </p>
+                            </div>
                         </div>
                         
                     <div class="social-links" style="margin-top: 30px; padding-top: 30px; border-top: 1px solid #eee;">
@@ -159,18 +169,10 @@ get_header(); ?>
                             </div>
                             <div class="faq-answer">
                                 <p>Yes, we offer free delivery within 25 miles of our showroom. Delivery fees may apply for longer distances.</p>
+                                <p style="font-size: 12px; color: #8B4513; font-style: italic; margin-top: 5px;">Terms apply</p>
                             </div>
                         </div>
                         
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <h4>What is your return policy?</h4>
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                            <div class="faq-answer">
-                                <p>We offer a 30-day return policy for unused items in original packaging. Custom orders are non-returnable.</p>
-                            </div>
-                        </div>
                         
                         <div class="faq-item">
                             <div class="faq-question">
@@ -820,6 +822,11 @@ body.contact-page .contact-content .social-icons a {
     .form-group {
         margin-bottom: 20px !important;
     }
+}
+    /* Contact Links Hover Effects */
+    .contact-details a:hover {
+        color: #A0522D !important;
+        text-decoration: underline !important;
 }
 </style>
 

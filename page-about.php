@@ -95,55 +95,6 @@ get_header(); ?>
         </div>
     </section>
 
-    <!-- Our Team -->
-    <section class="our-team">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <h2 class="section-title">Meet Our Team</h2>
-                    <p class="section-subtitle">The people behind Furniture Stylo</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="team-card">
-                        <div class="team-image">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="John Smith" class="img-fluid">
-                        </div>
-                        <div class="team-content">
-                            <h3>John Smith</h3>
-                            <p class="team-role">Founder & CEO</p>
-                            <p>With over 15 years in furniture design, John leads our vision of creating beautiful, functional spaces.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="team-card">
-                        <div class="team-image">
-                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Sarah Johnson" class="img-fluid">
-                        </div>
-                        <div class="team-content">
-                            <h3>Sarah Johnson</h3>
-                            <p class="team-role">Design Director</p>
-                            <p>Sarah brings her interior design expertise to help customers create stunning home environments.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="team-card">
-                        <div class="team-image">
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Mike Davis" class="img-fluid">
-                        </div>
-                        <div class="team-content">
-                            <h3>Mike Davis</h3>
-                            <p class="team-role">Customer Relations</p>
-                            <p>Mike ensures every customer receives exceptional service and support throughout their experience.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Why Choose Us -->
     <section class="why-choose-us">
@@ -163,6 +114,7 @@ get_header(); ?>
                             <div class="feature-content">
                                 <h4>Free Delivery</h4>
                                 <p>Complimentary delivery within 25 miles of our showroom</p>
+                                <p style="font-size: 12px; color: #8B4513; font-style: italic; margin-top: 5px;">Terms apply</p>
                             </div>
                         </div>
                         <div class="feature-item">
@@ -194,15 +146,6 @@ get_header(); ?>
                             <div class="feature-content">
                                 <h4>Custom Design</h4>
                                 <p>Personalized design consultation to match your style</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-undo"></i>
-                            </div>
-                            <div class="feature-content">
-                                <h4>Easy Returns</h4>
-                                <p>30-day return policy for your peace of mind</p>
                             </div>
                         </div>
                         <div class="feature-item">

@@ -217,7 +217,7 @@
     .brand-text h1 {
         margin: 0;
         font-family: 'Playfair Display', serif;
-        font-size: 32px;
+        font-size: 24px;
         font-weight: 700;
         line-height: 1.1;
         color: #2C2C2C;
@@ -319,7 +319,7 @@
 
     .mobile-brand h1 {
         margin: 0;
-        font-size: 24px;
+        font-size: 18px;
         font-weight: 700;
         color: #2C2C2C;
         line-height: 1.2;
@@ -443,7 +443,7 @@
 
     @media (max-width: 480px) {
         .mobile-brand h1 {
-            font-size: 20px;
+            font-size: 16px;
         }
         
         .mobile-logo img {

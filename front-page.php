@@ -93,16 +93,18 @@ get_header(); ?>
                         $description = isset($category_descriptions[$slug]) ? $category_descriptions[$slug] : 'Quality furniture for your home';
                 ?>
                     <div class="col-lg-3 col-md-6">
-                        <div class="category-card">
-                            <div class="category-image">
-                                <img src="<?php echo $image; ?>" alt="<?php echo $category->name; ?>">
+                        <a href="<?php echo get_term_link($category); ?>" class="category-card-link">
+                            <div class="category-card">
+                                <div class="category-image">
+                                    <img src="<?php echo $image; ?>" alt="<?php echo $category->name; ?>">
+                                </div>
+                                <div class="category-content">
+                                    <h3><?php echo $category->name; ?></h3>
+                                    <p><?php echo $description; ?></p>
+                                    <div class="category-link">Shop <?php echo $category->name; ?> <i class="fas fa-arrow-right"></i></div>
+                                </div>
                             </div>
-                            <div class="category-content">
-                                <h3><?php echo $category->name; ?></h3>
-                                <p><?php echo $description; ?></p>
-                                <a href="<?php echo get_term_link($category); ?>" class="category-link">Shop <?php echo $category->name; ?> <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
+                        </a>
                     </div>
                 <?php 
                     endforeach;

@@ -541,6 +541,18 @@ section {
     background-color: var(--background-light);
 }
 
+.category-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+.category-card-link:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
 .category-card {
     background-color: var(--white);
     border-radius: 10px;
@@ -548,9 +560,11 @@ section {
     box-shadow: var(--shadow);
     transition: var(--transition);
     margin-bottom: 30px;
+    height: 100%;
+    cursor: pointer;
 }
 
-.category-card:hover {
+.category-card-link:hover .category-card {
     transform: translateY(-10px);
     box-shadow: var(--shadow-hover);
 }
@@ -567,7 +581,7 @@ section {
     transition: var(--transition);
 }
 
-.category-card:hover .category-image img {
+.category-card-link:hover .category-image img {
     transform: scale(1.1);
 }
 
@@ -592,9 +606,10 @@ section {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    transition: var(--transition);
 }
 
-.category-link:hover {
+.category-card-link:hover .category-link {
     color: var(--accent-color);
 }
 
@@ -1116,8 +1131,17 @@ section {
 .shop-hero {
     background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     color: var(--white);
-    padding: 60px 0;
+    padding: 100px 0 80px 0 !important;
     margin-bottom: 40px;
+}
+
+/* Force shop hero padding for all shop pages */
+.shop-page .shop-hero,
+.woocommerce-page .shop-hero,
+body.shop-page .shop-hero,
+body.woocommerce-page .shop-hero {
+    padding-top: 100px !important;
+    padding-bottom: 80px !important;
 }
 
 .shop-title {

@@ -113,7 +113,6 @@ add_filter('body_class', 'furniture_stylo_body_classes');
 // Fallback menu for when no menu is set
 function furniture_stylo_fallback_menu() {
     echo '<ul class="nav-menu">';
-    echo '<li><a href="' . home_url('/') . '">Home</a></li>';
     
     // Get WooCommerce product categories
     $categories = get_terms(array(
