@@ -208,16 +208,16 @@
     }
 
     .logo-section img {
-        height: 45px;
+        height: 120px;
         width: auto;
-        max-width: 150px;
+        max-width: 400px;
         object-fit: contain;
     }
 
     .brand-text h1 {
         margin: 0;
         font-family: 'Playfair Display', serif;
-        font-size: 24px;
+        font-size: 32px;
         font-weight: 700;
         line-height: 1.1;
         color: #2C2C2C;
@@ -312,14 +312,14 @@
     }
 
     .mobile-logo img {
-        height: 35px;
+        height: 100px;
         width: auto;
-        max-width: 120px;
+        max-width: 320px;
     }
 
     .mobile-brand h1 {
         margin: 0;
-        font-size: 16px;
+        font-size: 24px;
         font-weight: 700;
         color: #2C2C2C;
         line-height: 1.2;
@@ -420,12 +420,12 @@
 
     @media (max-width: 768px) {
         .mobile-logo img {
-            height: 30px;
-            max-width: 100px;
+            height: 60px;
+            max-width: 170px;
         }
         
         .mobile-brand h1 {
-            font-size: 14px;
+            font-size: 28px;
         }
         
         .mobile-actions {
@@ -443,12 +443,12 @@
 
     @media (max-width: 480px) {
         .mobile-brand h1 {
-            font-size: 12px;
+            font-size: 20px;
         }
         
         .mobile-logo img {
-            height: 25px;
-            max-width: 80px;
+            height: 80px;
+            max-width: 240px;
         }
     }
     </style>

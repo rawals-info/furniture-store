@@ -78,8 +78,8 @@ get_header(); ?>
                 <!-- Products Grid -->
                 <div class="col-lg-10">
                     <div class="shop-toolbar">
-                        <div class="row align-items-center">
-                            <div class="col-md-6">
+                        <div class="toolbar-content">
+                            <div class="results-section">
                                 <p class="results-count">
                                     <?php
                                         // This will be updated after the query is created
@@ -87,8 +87,7 @@ get_header(); ?>
                                     ?>
                                 </p>
                             </div>
-                            <div class="col-md-6 text-end">
-                                <div class="shop-controls" style="display: flex; gap: 20px; align-items: center; justify-content: flex-end;">
+                            <div class="controls-section">
                                     <div class="products-per-page">
                                         <label for="products-per-page">Products per page:</label>
                                         <select id="products-per-page" class="sort-dropdown" onchange="changeProductsPerPage(this.value)">
@@ -100,15 +99,11 @@ get_header(); ?>
                                     </select>
                                     </div>
                                     <div class="pagination-controls">
-                                        <?php
-                                        // These will be updated after the query is created
-                                        ?>
                                         <div class="page-dropdown">
                                             <label for="page-select">Page:</label>
                                             <select id="page-select" class="sort-dropdown" onchange="changePage(this.value)">
                                                 <option value="1">1</option>
                                             </select>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -209,21 +204,21 @@ get_header(); ?>
                                         continue;
                                     }
                                     ?>
-                                    <div class="col-lg-4 col-md-6 col-sm-12 product-item" style="flex: 0 0 33.333333% !important; max-width: 33.333333% !important; width: 33.333333% !important; padding: 0 15px; margin-bottom: 30px; box-sizing: border-box;">
-                                        <div class="product-card" style="background: #fff; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.3s ease; height: 100%;">
-                                            <div class="product-image" style="height: 200px; overflow: hidden;">
+                                    <div class="col-lg-4 col-md-6 col-sm-6 product-item">
+                                        <div class="product-card">
+                                            <div class="product-image">
                                                 <a href="<?php echo esc_url(get_permalink()); ?>">
                                                     <?php 
                                                     if (has_post_thumbnail()) {
-                                                        echo get_the_post_thumbnail(get_the_ID(), 'medium', array('class' => 'img-fluid', 'style' => 'width: 100%; height: 100%; object-fit: cover;'));
+                                                        echo get_the_post_thumbnail(get_the_ID(), 'medium', array('class' => 'img-fluid'));
                                                     } else {
-                                                        echo '<img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Product Image" class="img-fluid" style="width: 100%; height: 100%; object-fit: cover;">';
+                                                        echo '<img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Product Image" class="img-fluid">';
                                                     }
                                                     ?>
                                                 </a>
                                             </div>
-                                            <div class="product-content" style="padding: 15px;">
-                                                <div class="product-category" style="font-size: 12px; color: #8B4513; font-weight: 600; text-transform: uppercase; margin-bottom: 8px;">
+                                            <div class="product-content">
+                                                <div class="product-category">
                                                     <?php 
                                                     $categories = get_the_terms(get_the_ID(), 'product_cat');
                                                     if ($categories && !is_wp_error($categories)) {
@@ -231,19 +226,19 @@ get_header(); ?>
                                                     }
                                                     ?>
                                                 </div>
-                                                <h3 class="product-title" style="font-size: 14px; line-height: 1.3; margin-bottom: 8px; font-weight: 600;">
-                                                    <a href="<?php echo esc_url(get_permalink()); ?>" style="color: #2C2C2C; text-decoration: none;">
+                                                <h3 class="product-title">
+                                                    <a href="<?php echo esc_url(get_permalink()); ?>">
                                                         <?php the_title(); ?>
                                                     </a>
                                                 </h3>
-                                                <div class="product-price" style="font-size: 16px; font-weight: 700; color: #8B4513; margin-bottom: 12px;">
+                                                <div class="product-price">
                                                     <?php echo $product->get_price_html(); ?>
                                                 </div>
-                                                <div class="product-buttons" style="display: flex; gap: 8px;">
-                                                    <a href="<?php echo esc_url(get_permalink()); ?>" class="btn btn-primary" style="flex: 1; padding: 8px 16px; font-size: 12px; border-radius: 4px; background: #8B4513; color: #fff; text-decoration: none; text-align: center; border: none;">
+                                                <div class="product-buttons">
+                                                    <a href="<?php echo esc_url(get_permalink()); ?>" class="btn btn-primary">
                                                         VIEW DETAILS
                                                     </a>
-                                                    <a href="/contact" class="btn btn-outline" style="flex: 1; padding: 8px 16px; font-size: 12px; border-radius: 4px; background: transparent; color: #8B4513; text-decoration: none; text-align: center; border: 2px solid #8B4513;">
+                                                    <a href="/contact" class="btn btn-outline">
                                                         CONTACT
                                                     </a>
                                                 </div>
@@ -286,7 +281,68 @@ get_header(); ?>
 </main>
 
 <style>
-/* FORCE PRODUCT GRID LAYOUT - HIGHEST PRIORITY */
+/* Shop Toolbar Layout */
+.shop-toolbar {
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.toolbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.results-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.controls-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.products-per-page {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.products-per-page label {
+    font-weight: 600;
+    color: #2C2C2C;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.page-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.page-dropdown label {
+    font-weight: 600;
+    color: #2C2C2C;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+/* Product Grid Layout */
 .shop-page .products-grid .row {
     display: flex !important;
     flex-wrap: wrap !important;
@@ -297,91 +353,212 @@ get_header(); ?>
 .shop-page .products-grid .product-item {
     padding: 0 15px !important;
     margin-bottom: 30px !important;
+    box-sizing: border-box !important;
 }
 
-/* Product Card Styling - Compact Size */
+/* Product Card Styling */
 .shop-page .product-item {
     flex: 0 0 33.333333% !important;
     max-width: 33.333333% !important;
     position: relative !important;
     width: 33.333333% !important;
-    padding-right: 10px !important;
-    padding-left: 10px !important;
-    box-sizing: border-box !important;
-    margin-bottom: 20px !important;
 }
 
-/* Reduce product card content size */
-.shop-page .product-item .product-card {
-    padding: 15px !important;
-    border-radius: 8px !important;
+.shop-page .product-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-.shop-page .product-item .product-image {
-    height: 200px !important;
-    margin-bottom: 15px !important;
+.shop-page .product-image {
+    height: 250px;
+    overflow: hidden;
+    position: relative;
 }
 
-.shop-page .product-item .product-image img {
-    height: 100% !important;
-    object-fit: cover !important;
+.shop-page .product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
-.shop-page .product-item .product-title {
-    font-size: 14px !important;
-    line-height: 1.3 !important;
-    margin-bottom: 8px !important;
+.shop-page .product-content {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-.shop-page .product-item .product-price {
-    font-size: 16px !important;
-    margin-bottom: 12px !important;
+.shop-page .product-category {
+    font-size: 12px;
+    color: #8B4513;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 8px;
 }
 
-.shop-page .product-item .product-buttons {
-    gap: 8px !important;
+.shop-page .product-title {
+    font-size: 16px;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    font-weight: 600;
+    flex: 1;
 }
 
-.shop-page .product-item .btn {
-    padding: 8px 16px !important;
-    font-size: 12px !important;
-    border-radius: 4px !important;
+.shop-page .product-title a {
+    color: #2C2C2C;
+    text-decoration: none;
 }
 
-/* Force WooCommerce products to be one-third width - 3 per row */
-.shop-page .woocommerce ul.products li.product,
-.shop-page .woocommerce-page ul.products li.product {
+.shop-page .product-title a:hover {
+    color: #8B4513;
+}
+
+.shop-page .product-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #8B4513;
+    margin-bottom: 15px;
+}
+
+.shop-page .product-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.shop-page .product-buttons .btn {
+    flex: 1;
+    padding: 10px 15px;
+    font-size: 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: none;
+    font-weight: 600;
+}
+
+.shop-page .product-buttons .btn-primary {
+    background: #8B4513;
+    color: #fff;
+}
+
+.shop-page .product-buttons .btn-primary:hover {
+    background: #A0522D;
+    transform: translateY(-2px);
+}
+
+.shop-page .product-buttons .btn-outline {
+    background: transparent;
+    color: #8B4513;
+    border: 2px solid #8B4513;
+}
+
+.shop-page .product-buttons .btn-outline:hover {
+    background: #8B4513;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Desktop: 3 products per row */
+@media (min-width: 992px) {
+    .shop-page .product-item {
     flex: 0 0 33.333333% !important;
     max-width: 33.333333% !important;
-    position: relative !important;
     width: 33.333333% !important;
-    padding-right: 10px !important;
-    padding-left: 10px !important;
-    box-sizing: border-box !important;
-    margin-bottom: 20px !important;
-    float: none !important;
-    display: block !important;
+    }
 }
 
 /* Tablet: 2 products per row */
 @media (max-width: 991px) and (min-width: 768px) {
-    .shop-page .product-item,
-    .shop-page .woocommerce ul.products li.product,
-    .shop-page .woocommerce-page ul.products li.product {
+    .shop-page .product-item {
         flex: 0 0 50% !important;
         max-width: 50% !important;
         width: 50% !important;
     }
+    
+    .shop-page .product-image {
+        height: 220px;
+    }
 }
 
-/* Mobile: 1 product per row */
+/* Mobile: 2 products per row with square images */
 @media (max-width: 767px) {
-    .shop-page .product-item,
-    .shop-page .woocommerce ul.products li.product,
-    .shop-page .woocommerce-page ul.products li.product {
+    .shop-page .product-item {
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+        width: 50% !important;
+    }
+    
+    .shop-page .product-image {
+        height: 180px; /* Square-ish for mobile */
+    }
+    
+    .shop-page .product-content {
+        padding: 15px;
+    }
+    
+    .shop-page .product-title {
+        font-size: 14px;
+    }
+    
+    .shop-page .product-price {
+        font-size: 16px;
+    }
+    
+    .shop-page .product-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .shop-page .product-buttons .btn {
+        padding: 8px 12px;
+        font-size: 11px;
+    }
+    
+    /* Mobile toolbar adjustments */
+    .toolbar-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+    
+    .controls-section {
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .products-per-page {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .pagination-controls {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+}
+
+/* Extra small mobile: 1 product per row */
+@media (max-width: 480px) {
+    .shop-page .product-item {
         flex: 0 0 100% !important;
         max-width: 100% !important;
         width: 100% !important;
+    }
+    
+    .shop-page .product-image {
+        height: 200px;
     }
 }
 
