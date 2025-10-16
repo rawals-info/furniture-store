@@ -273,3 +273,102 @@ function furniture_stylo_viewport_meta() {
     echo '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">' . "\n";
 }
 add_action('wp_head', 'furniture_stylo_viewport_meta', 1);
+
+// Generate XML Sitemap
+function furniture_stylo_generate_sitemap() {
+    // Check if this is a sitemap request
+    if (isset($_GET['sitemap']) && $_GET['sitemap'] === 'xml') {
+        // Set proper headers
+        header('Content-Type: application/xml; charset=utf-8');
+        
+        // Start XML output
+        echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+        echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">' . "\n";
+        
+        // Homepage
+        echo '<url>' . "\n";
+        echo '<loc>' . home_url() . '</loc>' . "\n";
+        echo '<lastmod>' . date('Y-m-d') . '</lastmod>' . "\n";
+        echo '<changefreq>weekly</changefreq>' . "\n";
+        echo '<priority>1.0</priority>' . "\n";
+        echo '</url>' . "\n";
+        
+        // Shop Page
+        if (function_exists('wc_get_page_permalink')) {
+            echo '<url>' . "\n";
+            echo '<loc>' . wc_get_page_permalink('shop') . '</loc>' . "\n";
+            echo '<lastmod>' . date('Y-m-d') . '</lastmod>' . "\n";
+            echo '<changefreq>weekly</changefreq>' . "\n";
+            echo '<priority>0.9</priority>' . "\n";
+            echo '</url>' . "\n";
+        }
+        
+        // About Page
+        echo '<url>' . "\n";
+        echo '<loc>' . home_url('/about') . '</loc>' . "\n";
+        echo '<lastmod>' . date('Y-m-d') . '</lastmod>' . "\n";
+        echo '<changefreq>monthly</changefreq>' . "\n";
+        echo '<priority>0.8</priority>' . "\n";
+        echo '</url>' . "\n";
+        
+        // Contact Page
+        echo '<url>' . "\n";
+        echo '<loc>' . home_url('/contact') . '</loc>' . "\n";
+        echo '<lastmod>' . date('Y-m-d') . '</lastmod>' . "\n";
+        echo '<changefreq>monthly</changefreq>' . "\n";
+        echo '<priority>0.8</priority>' . "\n";
+        echo '</url>' . "\n";
+        
+        // Product Categories
+        if (function_exists('get_terms')) {
+            $categories = get_terms(array(
+                'taxonomy' => 'product_cat',
+                'hide_empty' => true,
+            ));
+            
+            if (!empty($categories) && !is_wp_error($categories)) {
+                foreach ($categories as $category) {
+                    echo '<url>' . "\n";
+                    echo '<loc>' . get_term_link($category) . '</loc>' . "\n";
+                    echo '<lastmod>' . date('Y-m-d') . '</lastmod>' . "\n";
+                    echo '<changefreq>weekly</changefreq>' . "\n";
+                    echo '<priority>0.7</priority>' . "\n";
+                    echo '</url>' . "\n";
+                }
+            }
+        }
+        
+        // Individual Products
+        if (function_exists('wc_get_products')) {
+            $products = wc_get_products(array(
+                'limit' => -1,
+                'status' => 'publish'
+            ));
+            
+            if (!empty($products)) {
+                foreach ($products as $product) {
+                    echo '<url>' . "\n";
+                    echo '<loc>' . $product->get_permalink() . '</loc>' . "\n";
+                    echo '<lastmod>' . $product->get_date_modified()->date('Y-m-d') . '</lastmod>' . "\n";
+                    echo '<changefreq>monthly</changefreq>' . "\n";
+                    echo '<priority>0.6</priority>' . "\n";
+                    
+                    // Add product image
+                    if ($product->get_image_id()) {
+                        echo '<image:image>' . "\n";
+                        echo '<image:loc>' . wp_get_attachment_image_url($product->get_image_id(), 'large') . '</image:loc>' . "\n";
+                        echo '<image:title>' . esc_html($product->get_name()) . '</image:title>' . "\n";
+                        echo '<image:caption>' . esc_html($product->get_short_description() ?: $product->get_description()) . '</image:caption>' . "\n";
+                        echo '</image:image>' . "\n";
+                    }
+                    
+                    echo '</url>' . "\n";
+                }
+            }
+        }
+        
+        echo '</urlset>';
+        exit;
+    }
+}
+add_action('init', 'furniture_stylo_generate_sitemap');
