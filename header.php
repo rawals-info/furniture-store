@@ -34,9 +34,8 @@
                     </div>
                     <div class="col-md-4 text-end">
                         <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-pinterest"></i></a>
+                            <a href="https://www.instagram.com/newstylofurniture" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.tiktok.com/@newstylofurniture" target="_blank"><i class="fab fa-tiktok"></i></a>
                         </div>
                     </div>
                 </div>

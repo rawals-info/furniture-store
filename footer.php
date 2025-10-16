@@ -17,9 +17,8 @@
                             </div>
                             <p style="color: #ccc; margin-bottom: 20px;">We provide high-quality furniture and home decor solutions for modern living. Our curated collection brings style and comfort to your home.</p>
                             <div class="social-links">
-                                <a href="#" style="display: inline-flex; align-items: center; justify-content: center; width: 35px; height: 35px; background-color: rgba(255,255,255,0.1); color: #ccc; border-radius: 50%; margin-right: 10px; transition: all 0.3s ease;"><i class="fab fa-facebook"></i></a>
-                                <a href="#" style="display: inline-flex; align-items: center; justify-content: center; width: 35px; height: 35px; background-color: rgba(255,255,255,0.1); color: #ccc; border-radius: 50%; margin-right: 10px; transition: all 0.3s ease;"><i class="fab fa-instagram"></i></a>
-                                <a href="#" style="display: inline-flex; align-items: center; justify-content: center; width: 35px; height: 35px; background-color: rgba(255,255,255,0.1); color: #ccc; border-radius: 50%; margin-right: 10px; transition: all 0.3s ease;"><i class="fab fa-pinterest"></i></a>
+                                <a href="https://www.instagram.com/newstylofurniture" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; width: 35px; height: 35px; background-color: rgba(255,255,255,0.1); color: #ccc; border-radius: 50%; margin-right: 10px; transition: all 0.3s ease;"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.tiktok.com/@newstylofurniture" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; width: 35px; height: 35px; background-color: rgba(255,255,255,0.1); color: #ccc; border-radius: 50%; margin-right: 10px; transition: all 0.3s ease;"><i class="fab fa-tiktok"></i></a>
                             </div>
                         </div>
                     </div>

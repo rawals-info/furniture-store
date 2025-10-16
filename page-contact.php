@@ -74,10 +74,8 @@ get_header(); ?>
                     <div class="social-links" style="margin-top: 30px; padding-top: 30px; border-top: 1px solid #eee;">
                         <h4 style="color: #2C2C2C; margin-bottom: 15px;">Follow Us</h4>
                         <div class="social-icons" style="display: flex; gap: 15px; flex-wrap: wrap;">
-                            <a href="#" style="width: 40px; height: 40px; background: #f8f9fa; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #8B4513; transition: all 0.3s ease; text-decoration: none;"><i class="fab fa-facebook"></i></a>
-                            <a href="#" style="width: 40px; height: 40px; background: #f8f9fa; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #8B4513; transition: all 0.3s ease; text-decoration: none;"><i class="fab fa-instagram"></i></a>
-                            <a href="#" style="width: 40px; height: 40px; background: #f8f9fa; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #8B4513; transition: all 0.3s ease; text-decoration: none;"><i class="fab fa-pinterest"></i></a>
-                            <a href="#" style="width: 40px; height: 40px; background: #f8f9fa; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #8B4513; transition: all 0.3s ease; text-decoration: none;"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.instagram.com/newstylofurniture" target="_blank" style="width: 40px; height: 40px; background: #f8f9fa; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #8B4513; transition: all 0.3s ease; text-decoration: none;"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.tiktok.com/@newstylofurniture" target="_blank" style="width: 40px; height: 40px; background: #f8f9fa; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #8B4513; transition: all 0.3s ease; text-decoration: none;"><i class="fab fa-tiktok"></i></a>
                         </div>
                     </div>
                 </div>
