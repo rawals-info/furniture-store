@@ -180,6 +180,7 @@
                                     <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">New Stylo Furniture & Mattress</a>
                                 </h1>
                                 <p>Premium Furniture & Home Decor</p>
+                                <p class="customization-text">We Specialize in Custom Sizes & Designs</p>
                             </div>
                         </div>
                     </div>
@@ -357,6 +358,16 @@
         font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 1px;
+    }
+
+    .brand-text .customization-text {
+        margin: 3px 0 0 0;
+        color: #A0522D;
+        font-size: 11px;
+        font-weight: 600;
+        font-style: italic;
+        text-transform: none;
+        letter-spacing: 0.5px;
     }
 
     .header-center {
