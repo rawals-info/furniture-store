@@ -214,33 +214,43 @@ get_header(); ?>
                     while ($products->have_posts()) : $products->the_post();
                         global $product;
                 ?>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="product-card" style="background: #fff; border-radius: 8px; box-shadow: 0 3px 15px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.3s ease; height: 100%;">
-                            <div class="product-image" style="height: 160px; overflow: hidden; position: relative;">
-                                <a href="<?php the_permalink(); ?>">
+                    <div class="col-lg-3 col-md-6 col-sm-6 product-item">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <a href="<?php echo esc_url(get_permalink()); ?>">
                                     <?php 
                                     if (has_post_thumbnail()) {
-                                        echo get_the_post_thumbnail(get_the_ID(), 'medium', array('style' => 'width: 100%; height: 100%; object-fit: cover;'));
+                                        echo get_the_post_thumbnail(get_the_ID(), 'large', array('class' => 'img-fluid'));
                                     } else {
-                                        echo '<img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Product Image" style="width: 100%; height: 100%; object-fit: cover;">';
+                                        echo '<img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=90" alt="Product Image" class="img-fluid">';
                                     }
                                     ?>
                                 </a>
-                                <div class="product-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease;">
-                                    <a href="<?php the_permalink(); ?>" class="quick-view" style="color: #fff; font-size: 18px;">
-                                        <i class="fas fa-eye"></i>
-                                    </a>
-                                </div>
                             </div>
-                            <div class="product-content" style="padding: 12px;">
-                                <h3 class="product-title" style="font-size: 13px; line-height: 1.3; margin-bottom: 6px; font-weight: 600;">
-                                    <a href="<?php the_permalink(); ?>" style="color: #2C2C2C; text-decoration: none;"><?php the_title(); ?></a>
+                            <div class="product-content">
+                                <div class="product-category">
+                                    <?php 
+                                    $categories = get_the_terms(get_the_ID(), 'product_cat');
+                                    if ($categories && !is_wp_error($categories)) {
+                                        echo esc_html($categories[0]->name);
+                                    }
+                                    ?>
+                                </div>
+                                <h3 class="product-title">
+                                    <a href="<?php echo esc_url(get_permalink()); ?>">
+                                        <?php the_title(); ?>
+                                    </a>
                                 </h3>
-                                <div class="product-price" style="font-size: 14px; font-weight: 700; color: #8B4513; margin-bottom: 8px;">
+                                <div class="product-price">
                                     <?php echo $product->get_price_html(); ?>
                                 </div>
-                                <div class="product-actions">
-                                    <a href="<?php the_permalink(); ?>" class="btn btn-outline" style="padding: 6px 12px; font-size: 11px; border-radius: 4px; background: transparent; color: #8B4513; text-decoration: none; text-align: center; border: 1px solid #8B4513; display: block; width: 100%;">View Details</a>
+                                <div class="product-buttons">
+                                    <a href="<?php echo esc_url(get_permalink()); ?>" class="btn btn-primary">
+                                        VIEW DETAILS
+                                    </a>
+                                    <a href="/contact" class="btn btn-outline">
+                                        CONTACT
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -264,33 +274,43 @@ get_header(); ?>
                         while ($fallback_products->have_posts()) : $fallback_products->the_post();
                             global $product;
                 ?>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="product-card" style="background: #fff; border-radius: 8px; box-shadow: 0 3px 15px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.3s ease; height: 100%;">
-                            <div class="product-image" style="height: 160px; overflow: hidden; position: relative;">
-                                <a href="<?php the_permalink(); ?>">
+                    <div class="col-lg-3 col-md-6 col-sm-6 product-item">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <a href="<?php echo esc_url(get_permalink()); ?>">
                                     <?php 
                                     if (has_post_thumbnail()) {
-                                        echo get_the_post_thumbnail(get_the_ID(), 'medium', array('style' => 'width: 100%; height: 100%; object-fit: cover;'));
+                                        echo get_the_post_thumbnail(get_the_ID(), 'large', array('class' => 'img-fluid'));
                                     } else {
-                                        echo '<img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Product Image" style="width: 100%; height: 100%; object-fit: cover;">';
+                                        echo '<img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=90" alt="Product Image" class="img-fluid">';
                                     }
                                     ?>
                                 </a>
-                                <div class="product-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease;">
-                                    <a href="<?php the_permalink(); ?>" class="quick-view" style="color: #fff; font-size: 18px;">
-                                        <i class="fas fa-eye"></i>
-                                    </a>
-                                </div>
                             </div>
-                            <div class="product-content" style="padding: 12px;">
-                                <h3 class="product-title" style="font-size: 13px; line-height: 1.3; margin-bottom: 6px; font-weight: 600;">
-                                    <a href="<?php the_permalink(); ?>" style="color: #2C2C2C; text-decoration: none;"><?php the_title(); ?></a>
+                            <div class="product-content">
+                                <div class="product-category">
+                                    <?php 
+                                    $categories = get_the_terms(get_the_ID(), 'product_cat');
+                                    if ($categories && !is_wp_error($categories)) {
+                                        echo esc_html($categories[0]->name);
+                                    }
+                                    ?>
+                                </div>
+                                <h3 class="product-title">
+                                    <a href="<?php echo esc_url(get_permalink()); ?>">
+                                        <?php the_title(); ?>
+                                    </a>
                                 </h3>
-                                <div class="product-price" style="font-size: 14px; font-weight: 700; color: #8B4513; margin-bottom: 8px;">
+                                <div class="product-price">
                                     <?php echo $product->get_price_html(); ?>
                                 </div>
-                                <div class="product-actions">
-                                    <a href="<?php the_permalink(); ?>" class="btn btn-outline" style="padding: 6px 12px; font-size: 11px; border-radius: 4px; background: transparent; color: #8B4513; text-decoration: none; text-align: center; border: 1px solid #8B4513; display: block; width: 100%;">View Details</a>
+                                <div class="product-buttons">
+                                    <a href="<?php echo esc_url(get_permalink()); ?>" class="btn btn-primary">
+                                        VIEW DETAILS
+                                    </a>
+                                    <a href="/contact" class="btn btn-outline">
+                                        CONTACT
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -355,6 +375,144 @@ get_header(); ?>
             </div>
         </div>
     </section>
+
+    <style>
+    /* Featured Products - Use same styling as shop page */
+    .featured-products .product-item {
+        padding: 0 15px !important;
+        margin-bottom: 30px !important;
+    }
+    
+    .featured-products .product-card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        overflow: hidden;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .featured-products .product-card:hover {
+        box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+    
+    .featured-products .product-image {
+        height: 350px;
+        overflow: hidden;
+        position: relative;
+        background: #f8f9fa;
+    }
+    
+    .featured-products .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    
+    .featured-products .product-content {
+        padding: 15px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .featured-products .product-category {
+        font-size: 12px;
+        color: #8B4513;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+    }
+    
+    .featured-products .product-title {
+        font-size: 15px;
+        line-height: 1.3;
+        margin-bottom: 8px;
+        font-weight: 600;
+        flex: 1;
+    }
+    
+    .featured-products .product-title a {
+        color: #2C2C2C;
+        text-decoration: none;
+    }
+    
+    .featured-products .product-title a:hover {
+        color: #8B4513;
+    }
+    
+    .featured-products .product-price {
+        font-size: 18px;
+        font-weight: 700;
+        color: #8B4513;
+        margin-bottom: 10px;
+    }
+    
+    .featured-products .product-buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: auto;
+    }
+    
+    .featured-products .product-buttons .btn {
+        flex: 1;
+        padding: 10px 15px;
+        font-size: 12px;
+        border-radius: 6px;
+        text-decoration: none;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: none;
+        font-weight: 600;
+    }
+    
+    .featured-products .product-buttons .btn-primary {
+        background: #8B4513;
+        color: #fff;
+    }
+    
+    .featured-products .product-buttons .btn-primary:hover {
+        background: #A0522D;
+    }
+    
+    .featured-products .product-buttons .btn-outline {
+        background: transparent;
+        color: #8B4513;
+        border: 2px solid #8B4513;
+    }
+    
+    .featured-products .product-buttons .btn-outline:hover {
+        background: #8B4513;
+        color: #fff;
+    }
+    
+    /* Responsive for Featured Products */
+    @media (max-width: 991px) {
+        .featured-products .product-image {
+            height: 300px;
+        }
+    }
+    
+    @media (max-width: 767px) {
+        .featured-products .product-image {
+            height: 220px;
+        }
+        
+        .featured-products .product-content {
+            padding: 12px;
+        }
+        
+        .featured-products .product-title {
+            font-size: 13px;
+        }
+        
+        .featured-products .product-buttons {
+            flex-direction: column;
+            gap: 6px;
+        }
+    }
+    </style>
 
     <!-- Newsletter Section -->
     <section class="newsletter-section">

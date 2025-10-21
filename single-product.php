@@ -100,7 +100,7 @@ get_header(); ?>
                                     <div class="related-product-card">
                                         <div class="product-image">
                                             <a href="<?php echo get_permalink($related_id); ?>">
-                                                <?php echo get_the_post_thumbnail($related_id, 'medium'); ?>
+                                                <?php echo get_the_post_thumbnail($related_id, 'large'); ?>
                                             </a>
                                         </div>
                                         <div class="product-content">
