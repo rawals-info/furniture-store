@@ -1,5 +1,5 @@
 /*!
- * Furniture Stylo Theme - Custom JavaScript
+ * New Stylo Furniture Theme - Custom JavaScript
  * Interactive features and animations
  */
 

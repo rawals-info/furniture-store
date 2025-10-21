@@ -1,6 +1,6 @@
 <?php
 /**
- * Furniture Stylo Theme
+ * New Stylo Furniture Theme
  * A modern, elegant theme for furniture stores
  * 
  * @package FurnitureStylo

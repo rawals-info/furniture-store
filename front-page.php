@@ -316,7 +316,7 @@ get_header(); ?>
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="about-content">
-                        <h2>Why Choose Furniture Stylo?</h2>
+                        <h2>Why Choose New Stylo Furniture?</h2>
                         <p>We believe that furniture should be more than just functional—it should be a reflection of your personal style and a source of comfort in your daily life.</p>
                         
                         <div class="features">

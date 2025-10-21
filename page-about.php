@@ -13,7 +13,7 @@ get_header(); ?>
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
-                    <h1 class="page-title">About Furniture Stylo</h1>
+                    <h1 class="page-title">About New Stylo Furniture</h1>
                     <p class="page-subtitle">Crafting beautiful spaces with quality furniture since 2020</p>
                 </div>
             </div>
@@ -27,7 +27,7 @@ get_header(); ?>
                 <div class="col-lg-6">
                     <div class="story-content">
                         <h2>Our Story</h2>
-                        <p>Furniture Stylo began with a simple mission: to bring beautiful, high-quality furniture to every home. What started as a small family business has grown into a trusted name in furniture retail, serving customers throughout the Greater Toronto Area.</p>
+                        <p>New Stylo Furniture began with a simple mission: to bring beautiful, high-quality furniture to every home. What started as a small family business has grown into a trusted name in furniture retail, serving customers throughout the Greater Toronto Area.</p>
                         <p>We believe that furniture is more than just functional pieces – it's an expression of your personal style and the foundation of your home's character. That's why we carefully curate every piece in our collection, ensuring it meets our high standards for quality, durability, and design.</p>
                         <div class="story-stats">
                             <div class="stat-item">
@@ -101,7 +101,7 @@ get_header(); ?>
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
-                    <h2 class="section-title">Why Choose Furniture Stylo?</h2>
+                    <h2 class="section-title">Why Choose New Stylo Furniture?</h2>
                 </div>
             </div>
             <div class="row">
