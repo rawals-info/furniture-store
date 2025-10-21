@@ -23,6 +23,11 @@ function furniture_stylo_setup() {
     add_theme_support('wc-product-gallery-lightbox');
     add_theme_support('wc-product-gallery-slider');
     
+    // Set custom image sizes for better quality
+    set_post_thumbnail_size(800, 800, true); // Default thumbnail size
+    add_image_size('product-card', 800, 800, false); // Product card size - high quality
+    add_image_size('product-large', 1200, 1200, false); // Product detail page
+    
     // Register navigation menus
     register_nav_menus(array(
         'primary' => __('Primary Menu', 'furniture-stylo'),
@@ -30,6 +35,31 @@ function furniture_stylo_setup() {
     ));
 }
 add_action('after_setup_theme', 'furniture_stylo_setup');
+
+// Override WooCommerce default image sizes for higher quality
+add_filter('woocommerce_get_image_size_thumbnail', function($size) {
+    return array(
+        'width'  => 800,
+        'height' => 800,
+        'crop'   => 0,
+    );
+});
+
+add_filter('woocommerce_get_image_size_single', function($size) {
+    return array(
+        'width'  => 1200,
+        'height' => 1200,
+        'crop'   => 0,
+    );
+});
+
+add_filter('woocommerce_get_image_size_gallery_thumbnail', function($size) {
+    return array(
+        'width'  => 300,
+        'height' => 300,
+        'crop'   => 0,
+    );
+});
 
 // Increase upload file size limit
 function furniture_stylo_increase_upload_size($size) {

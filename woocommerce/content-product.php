@@ -20,9 +20,9 @@ if (!$product || !$product->is_visible()) {
             <a href="<?php echo esc_url(get_permalink()); ?>">
                 <?php 
                 if (has_post_thumbnail()) {
-                    echo get_the_post_thumbnail(get_the_ID(), 'medium', array('class' => 'img-fluid'));
+                    echo get_the_post_thumbnail(get_the_ID(), 'large', array('class' => 'img-fluid'));
                 } else {
-                    echo '<img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Product Image" class="img-fluid">';
+                    echo '<img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=90" alt="Product Image" class="img-fluid">';
                 }
                 ?>
             </a>
