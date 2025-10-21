@@ -31,6 +31,18 @@ function furniture_stylo_setup() {
 }
 add_action('after_setup_theme', 'furniture_stylo_setup');
 
+// Increase upload file size limit
+function furniture_stylo_increase_upload_size($size) {
+    return 64 * 1024 * 1024; // 64MB
+}
+add_filter('upload_size_limit', 'furniture_stylo_increase_upload_size');
+add_filter('site_upload_size_limit', 'furniture_stylo_increase_upload_size');
+
+// Increase maximum file upload size
+@ini_set('upload_max_size', '64M');
+@ini_set('post_max_size', '64M');
+@ini_set('max_execution_time', '300');
+
 // Enqueue styles and scripts
 function furniture_stylo_scripts() {
     // Main stylesheet

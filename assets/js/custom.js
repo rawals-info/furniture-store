@@ -145,13 +145,9 @@
         });
     }
 
-    // Product Hover Effects
+    // Product Hover Effects - Disabled for better UX
     function initProductHover() {
-        $('.product-card').on('mouseenter', function() {
-            $(this).find('.product-image img').css('transform', 'scale(1.1)');
-        }).on('mouseleave', function() {
-            $(this).find('.product-image img').css('transform', 'scale(1)');
-        });
+        // Hover effects removed - no transform/scale on product cards
     }
 
     // Header Scroll Effect

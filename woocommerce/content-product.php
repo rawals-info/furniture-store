@@ -142,15 +142,13 @@ if (!$product || !$product->is_visible()) {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
     height: 100%;
     border: 1px solid #f0f0f0;
     position: relative;
 }
 
 .product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.12);
     border-color: #8B4513;
 }
 
@@ -165,7 +163,6 @@ if (!$product || !$product->is_visible()) {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
 }
 
 .product-badges {
@@ -213,10 +210,6 @@ if (!$product || !$product->is_visible()) {
 
 .product-card:hover .product-overlay {
     opacity: 1;
-}
-
-.product-card:hover .product-image img {
-    transform: scale(1.08);
 }
 
 .overlay-actions {
@@ -327,7 +320,6 @@ if (!$product || !$product->is_visible()) {
 
 .product-actions .btn-primary:hover {
     background: linear-gradient(135deg, #A0522D, #8B4513);
-    transform: translateY(-2px);
 }
 
 .product-actions .btn-outline {
@@ -339,7 +331,6 @@ if (!$product || !$product->is_visible()) {
 .product-actions .btn-outline:hover {
     background: #8B4513;
     color: white;
-    transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {

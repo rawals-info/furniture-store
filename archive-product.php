@@ -427,27 +427,26 @@ $current_category = get_queried_object();
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
     overflow: hidden;
-    transition: transform 0.3s ease;
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
 .shop-page .product-image {
-    height: 250px;
+    height: 350px;
     overflow: hidden;
     position: relative;
+    background: #f8f9fa;
 }
 
 .shop-page .product-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+    object-fit: contain;
 }
 
 .shop-page .product-content {
-    padding: 20px;
+    padding: 15px;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -458,13 +457,13 @@ $current_category = get_queried_object();
     color: #8B4513;
     font-weight: 600;
     text-transform: uppercase;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
 }
 
 .shop-page .product-title {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.3;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     font-weight: 600;
     flex: 1;
 }
@@ -482,7 +481,7 @@ $current_category = get_queried_object();
     font-size: 18px;
     font-weight: 700;
     color: #8B4513;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .shop-page .product-buttons {
@@ -510,7 +509,6 @@ $current_category = get_queried_object();
 
 .shop-page .product-buttons .btn-primary:hover {
     background: #A0522D;
-    transform: translateY(-2px);
 }
 
 .shop-page .product-buttons .btn-outline {
@@ -522,7 +520,6 @@ $current_category = get_queried_object();
 .shop-page .product-buttons .btn-outline:hover {
     background: #8B4513;
     color: #fff;
-    transform: translateY(-2px);
 }
 
 /* Desktop: 3 products per row */
@@ -543,7 +540,7 @@ $current_category = get_queried_object();
     }
     
     .shop-page .product-image {
-        height: 220px;
+        height: 300px;
     }
 }
 
@@ -556,15 +553,15 @@ $current_category = get_queried_object();
     }
     
     .shop-page .product-image {
-        height: 180px; /* Square-ish for mobile */
+        height: 220px;
     }
     
     .shop-page .product-content {
-        padding: 15px;
+        padding: 12px;
     }
     
     .shop-page .product-title {
-        font-size: 14px;
+        font-size: 13px;
     }
     
     .shop-page .product-price {
@@ -573,7 +570,7 @@ $current_category = get_queried_object();
     
     .shop-page .product-buttons {
         flex-direction: column;
-        gap: 8px;
+        gap: 6px;
     }
     
     .shop-page .product-buttons .btn {
@@ -616,7 +613,7 @@ $current_category = get_queried_object();
     }
     
     .shop-page .product-image {
-        height: 200px;
+        height: 280px;
     }
 }
 
