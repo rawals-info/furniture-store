@@ -13,10 +13,10 @@
     <link rel="profile" href="https://gmpg.org/xfn/11">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo esc_url(home_url('/wp-content/uploads/2025/10/logo_stylo.png')); ?>">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo esc_url(home_url('/wp-content/uploads/2025/10/logo_stylo.png')); ?>">
-    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo esc_url(home_url('/wp-content/uploads/2025/10/logo_stylo.png')); ?>">
-    <link rel="shortcut icon" href="<?php echo esc_url(home_url('/wp-content/uploads/2025/10/logo_stylo.png')); ?>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo_stylo.png'); ?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo_stylo.png'); ?>">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo_stylo.png'); ?>">
+    <link rel="shortcut icon" href="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo_stylo.png'); ?>">
     <meta name="theme-color" content="#8B4513">
     
     <!-- SEO Meta Tags -->
@@ -84,8 +84,8 @@
         "name": "New Stylo Furniture & Mattress",
         "description": "Premium furniture and mattresses in Mississauga. Quality dining tables, beds, living room sets, and home decor.",
         "url": "<?php echo home_url(); ?>",
-        "logo": "<?php echo esc_url(home_url('/wp-content/uploads/2025/10/logo_stylo.png')); ?>",
-        "image": "<?php echo esc_url(home_url('/wp-content/uploads/2025/10/logo_stylo.png')); ?>",
+        "logo": "<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo_stylo.png'); ?>",
+        "image": "<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo_stylo.png'); ?>",
         "telephone": "(905) 270-0666",
         "email": "stylofurniture1456@gmail.com",
         "address": {
@@ -173,7 +173,7 @@
                     <div class="header-left">
                         <div class="logo-section">
                             <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-                                <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/10/logo_stylo.png')); ?>" alt="<?php bloginfo('name'); ?>">
+                                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo_stylo.png'); ?>" alt="<?php bloginfo('name'); ?>">
                             </a>
                             <div class="brand-text">
                                 <h1 class="site-title">
@@ -213,7 +213,7 @@
                 <div class="mobile-header">
                     <div class="mobile-logo">
                         <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-                            <img src="<?php echo esc_url(home_url('/wp-content/uploads/2025/10/logo_stylo.png')); ?>" alt="<?php bloginfo('name'); ?>">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo_stylo.png'); ?>" alt="<?php bloginfo('name'); ?>">
                         </a>
                         <div class="mobile-brand">
                             <h1>New Stylo Furniture & Mattress</h1>
