@@ -414,3 +414,69 @@ function furniture_stylo_generate_sitemap() {
     }
 }
 add_action('init', 'furniture_stylo_generate_sitemap');
+
+/**
+ * Check if a product's brand equals 'aclass'
+ * Checks multiple possible brand storage methods
+ * 
+ * @param WC_Product|int $product Product object or product ID
+ * @return bool True if brand equals 'aclass' (case-insensitive)
+ */
+function furniture_stylo_is_aclass_brand($product) {
+    // If product ID is passed, get the product object
+    if (is_numeric($product)) {
+        $product = wc_get_product($product);
+    }
+    
+    if (!$product) {
+        return false;
+    }
+    
+    $product_id = $product->get_id();
+    
+    // Check various possible brand storage locations
+    $brand = '';
+    
+    // 1. Check custom field (post meta) - common field names
+    $brand_meta_keys = array('brand', '_brand', 'product_brand', '_product_brand', 'pa_brand');
+    foreach ($brand_meta_keys as $meta_key) {
+        $meta_value = get_post_meta($product_id, $meta_key, true);
+        if (!empty($meta_value)) {
+            $brand = $meta_value;
+            break;
+        }
+    }
+    
+    // 2. Check product attribute 'brand'
+    if (empty($brand)) {
+        $brand_attr = $product->get_attribute('brand');
+        if (!empty($brand_attr)) {
+            $brand = $brand_attr;
+        }
+    }
+    
+    // 3. Check pa_brand taxonomy (product attribute taxonomy)
+    if (empty($brand)) {
+        $brand_terms = wp_get_post_terms($product_id, 'pa_brand', array('fields' => 'names'));
+        if (!empty($brand_terms) && !is_wp_error($brand_terms)) {
+            $brand = $brand_terms[0];
+        }
+    }
+    
+    // 4. Check for any taxonomy with 'brand' in the name
+    if (empty($brand)) {
+        $taxonomies = get_object_taxonomies('product', 'names');
+        foreach ($taxonomies as $taxonomy) {
+            if (stripos($taxonomy, 'brand') !== false) {
+                $terms = wp_get_post_terms($product_id, $taxonomy, array('fields' => 'names'));
+                if (!empty($terms) && !is_wp_error($terms)) {
+                    $brand = $terms[0];
+                    break;
+                }
+            }
+        }
+    }
+    
+    // Compare brand (case-insensitive)
+    return !empty($brand) && strtolower(trim($brand)) === 'aclass';
+}

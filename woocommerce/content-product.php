@@ -27,6 +27,9 @@ if (!$product || !$product->is_visible()) {
                 ?>
             </a>
             <div class="product-badges">
+                <?php if (furniture_stylo_is_aclass_brand($product)) : ?>
+                    <span class="badge canadian-made">100% Canadian-Made</span>
+                <?php endif; ?>
                 <?php if ($product->is_featured()) : ?>
                     <span class="badge featured">Featured</span>
                 <?php endif; ?>
@@ -192,6 +195,13 @@ if (!$product || !$product->is_visible()) {
 .badge.sale {
     background: linear-gradient(135deg, #e74c3c, #c0392b);
     color: white;
+}
+
+.badge.canadian-made {
+    background: linear-gradient(135deg, #D4AF37, #B8860B);
+    color: white;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 .product-overlay {

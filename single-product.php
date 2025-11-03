@@ -22,11 +22,16 @@ get_header(); ?>
                             <!-- Product Images -->
                             <div class="col-lg-6">
                                 <div class="product-images">
-                                    <div class="main-image">
+                                    <div class="main-image" style="position: relative;">
                                         <?php if (has_post_thumbnail()) : ?>
                                             <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>" alt="<?php the_title(); ?>" class="img-fluid lightbox-trigger" data-src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>">
                                         <?php else : ?>
                                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholder-product.jpg" alt="Product Image" class="img-fluid lightbox-trigger" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholder-product.jpg">
+                                        <?php endif; ?>
+                                        <?php if (furniture_stylo_is_aclass_brand($product)) : ?>
+                                            <div style="position: absolute; top: 20px; left: 20px; z-index: 2;">
+                                                <span class="badge canadian-made" style="display: inline-block; padding: 8px 16px; border-radius: 25px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; background: linear-gradient(135deg, #D4AF37, #B8860B); color: white; border: 2px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">100% Canadian-Made</span>
+                                            </div>
                                         <?php endif; ?>
                                     </div>
                                     
@@ -49,7 +54,12 @@ get_header(); ?>
                             <div class="col-lg-6">
                                 <div class="product-info">
                                     
-                                    <h1 class="product-title"><?php the_title(); ?></h1>
+                                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
+                                        <h1 class="product-title" style="margin: 0;"><?php the_title(); ?></h1>
+                                        <?php if (furniture_stylo_is_aclass_brand($product)) : ?>
+                                            <span class="badge canadian-made" style="display: inline-block; padding: 8px 16px; border-radius: 25px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; background: linear-gradient(135deg, #D4AF37, #B8860B); color: white; border: 2px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">100% Canadian-Made</span>
+                                        <?php endif; ?>
+                                    </div>
                                     
                                     <div class="product-price">
                                         <?php echo $product->get_price_html(); ?>

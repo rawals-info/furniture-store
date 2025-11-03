@@ -264,7 +264,7 @@ $current_category = get_queried_object();
                                     ?>
                                     <div class="col-lg-4 col-md-6 col-sm-6 product-item">
                                         <div class="product-card">
-                                            <div class="product-image">
+                                            <div class="product-image" style="position: relative;">
                                                 <a href="<?php echo esc_url(get_permalink()); ?>">
                                                     <?php 
                                                     if (has_post_thumbnail()) {
@@ -274,6 +274,11 @@ $current_category = get_queried_object();
                                                     }
                                                     ?>
                                                 </a>
+                                                <?php if (furniture_stylo_is_aclass_brand($product)) : ?>
+                                                    <div style="position: absolute; top: 15px; left: 15px; z-index: 2;">
+                                                        <span class="badge canadian-made" style="display: inline-block; padding: 6px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; background: linear-gradient(135deg, #D4AF37, #B8860B); color: white; border: 2px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">100% Canadian-Made</span>
+                                                    </div>
+                                                <?php endif; ?>
                                             </div>
                                             <div class="product-content">
                                                 <div class="product-category">

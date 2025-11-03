@@ -201,7 +201,7 @@ get_header(); ?>
                                     ?>
                                     <div class="col-lg-4 col-md-6 col-sm-12 product-item" style="flex: 0 0 33.333333% !important; max-width: 33.333333% !important; width: 33.333333% !important; padding: 0 15px; margin-bottom: 30px; box-sizing: border-box;">
                                         <div class="product-card" style="background: #fff; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.3s ease; height: 100%;">
-                                            <div class="product-image" style="height: 200px; overflow: hidden;">
+                                            <div class="product-image" style="height: 200px; overflow: hidden; position: relative;">
                                                 <a href="<?php echo esc_url(get_permalink()); ?>">
                                                     <?php 
                                                     if (has_post_thumbnail()) {
@@ -211,6 +211,11 @@ get_header(); ?>
                                                     }
                                                     ?>
                                                 </a>
+                                                <?php if (furniture_stylo_is_aclass_brand($product)) : ?>
+                                                    <div style="position: absolute; top: 15px; left: 15px; z-index: 2;">
+                                                        <span class="badge canadian-made" style="display: inline-block; padding: 6px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; background: linear-gradient(135deg, #D4AF37, #B8860B); color: white; border: 2px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">100% Canadian-Made</span>
+                                                    </div>
+                                                <?php endif; ?>
                                             </div>
                                             <div class="product-content" style="padding: 15px;">
                                                 <div class="product-category" style="font-size: 12px; color: #8B4513; font-weight: 600; text-transform: uppercase; margin-bottom: 8px;">
