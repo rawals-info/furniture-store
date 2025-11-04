@@ -102,25 +102,63 @@ $current_category = get_queried_object();
                             <ul class="category-list">
                                 <li><a href="<?php echo wc_get_page_permalink('shop'); ?>">All Products</a></li>
                                 <?php
-                                $categories = get_terms(array(
-                                    'taxonomy' => 'product_cat',
-                                    'hide_empty' => true,
-                                ));
-                                
                                 // Get current category if we're on a category page
                                 $current_category = null;
                                 if (is_product_category()) {
                                     $current_category = get_queried_object();
                                 }
                                 
-                                foreach ($categories as $category) :
-                                    // Skip the current category if we're viewing it
-                                    if ($current_category && $category->term_id === $current_category->term_id) {
-                                        continue;
+                                // Get only parent categories (parent = 0)
+                                $parent_categories = get_terms(array(
+                                    'taxonomy' => 'product_cat',
+                                    'hide_empty' => true,
+                                    'orderby' => 'name',
+                                    'order' => 'ASC',
+                                    'parent' => 0
+                                ));
+                                
+                                if (!empty($parent_categories) && !is_wp_error($parent_categories)) {
+                                    foreach ($parent_categories as $parent_category) {
+                                        // Get child categories for this parent
+                                        $child_categories = get_terms(array(
+                                            'taxonomy' => 'product_cat',
+                                            'hide_empty' => true,
+                                            'orderby' => 'name',
+                                            'order' => 'ASC',
+                                            'parent' => $parent_category->term_id
+                                        ));
+                                        
+                                        // Check if this category has children
+                                        if (!empty($child_categories) && !is_wp_error($child_categories)) {
+                                            // Check if current category is this parent or one of its children
+                                            $is_active = ($current_category && 
+                                                ($current_category->term_id === $parent_category->term_id || 
+                                                 $current_category->parent === $parent_category->term_id));
+                                            
+                                            // Parent with children - add expandable item
+                                            echo '<li class="category-parent has-children' . ($is_active ? ' active' : '') . '">';
+                                            echo '<a href="' . get_term_link($parent_category) . '" class="category-link">' . esc_html($parent_category->name) . ' <i class="fas fa-chevron-down toggle-icon"></i></a>';
+                                            echo '<ul class="category-children' . ($is_active ? ' expanded' : '') . '">';
+                                            
+                                            // Add parent category link as first item
+                                            echo '<li><a href="' . get_term_link($parent_category) . '">All ' . esc_html($parent_category->name) . '</a></li>';
+                                            
+                                            // Add child categories
+                                            foreach ($child_categories as $child_category) {
+                                                $is_child_active = ($current_category && $current_category->term_id === $child_category->term_id);
+                                                echo '<li' . ($is_child_active ? ' class="active"' : '') . '><a href="' . get_term_link($child_category) . '">' . esc_html($child_category->name) . '</a></li>';
+                                            }
+                                            
+                                            echo '</ul>';
+                                            echo '</li>';
+                                        } else {
+                                            // Parent without children - simple link
+                                            $is_active = ($current_category && $current_category->term_id === $parent_category->term_id);
+                                            echo '<li' . ($is_active ? ' class="active"' : '') . '><a href="' . get_term_link($parent_category) . '">' . esc_html($parent_category->name) . '</a></li>';
+                                        }
                                     }
+                                }
                                 ?>
-                                    <li><a href="<?php echo get_term_link($category); ?>"><?php echo $category->name; ?></a></li>
-                                <?php endforeach; ?>
                             </ul>
                         </div>
                         
@@ -694,6 +732,73 @@ $current_category = get_queried_object();
     color: #8B4513;
 }
 
+/* Sidebar Category Expandable Styles */
+.category-list .category-parent {
+    position: relative;
+}
+
+.category-list .category-parent .category-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.category-list .category-parent .toggle-icon {
+    font-size: 10px;
+    transition: transform 0.3s ease;
+    margin-left: auto;
+}
+
+.category-list .category-parent.active .toggle-icon,
+.category-list .category-parent.has-children:hover .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.category-list .category-children {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding-left: 0;
+}
+
+.category-list .category-parent.active .category-children,
+.category-list .category-children.expanded {
+    max-height: 500px;
+    padding-top: 5px;
+    padding-left: 15px;
+}
+
+.category-list .category-children li {
+    margin-bottom: 5px;
+}
+
+.category-list .category-children a {
+    font-size: 13px;
+    color: #888;
+    padding: 5px 0;
+}
+
+.category-list .category-children a:hover {
+    color: #8B4513;
+    padding-left: 5px;
+    transition: all 0.3s ease;
+}
+
+.category-list .category-parent.active > .category-link {
+    color: #8B4513;
+    font-weight: 600;
+}
+
+.category-list li.active > a {
+    color: #8B4513;
+    font-weight: 600;
+}
+
 .contact-widget p {
     color: #666;
     margin-bottom: 20px;
@@ -919,6 +1024,27 @@ function changeProductsPerPage(value) {
     url.searchParams.delete('paged'); // Reset to first page
     window.location.href = url.toString();
 }
+
+// Sidebar category expand/collapse functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const categoryLinks = document.querySelectorAll('.category-list .category-parent.has-children .category-link');
+    
+    categoryLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            const parent = this.closest('.category-parent');
+            if (parent && parent.classList.contains('has-children')) {
+                // Prevent navigation and toggle dropdown instead
+                e.preventDefault();
+                parent.classList.toggle('active');
+                
+                const children = parent.querySelector('.category-children');
+                if (children) {
+                    children.classList.toggle('expanded');
+                }
+            }
+        });
+    });
+});
 </script>
 
 <?php get_footer(); ?>

@@ -396,6 +396,118 @@
         color: #8B4513;
     }
 
+    /* Dropdown Menu Styles */
+    .desktop-nav .nav-menu li {
+        position: relative;
+    }
+
+    .desktop-nav .nav-menu .menu-item-has-children > a::after {
+        content: '\f107';
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        margin-left: 5px;
+        font-size: 12px;
+        transition: transform 0.3s ease;
+    }
+
+    .desktop-nav .nav-menu .menu-item-has-children:hover > a::after {
+        transform: rotate(180deg);
+    }
+
+    .desktop-nav .nav-menu .sub-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #ffffff;
+        min-width: 200px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        border-radius: 8px;
+        padding: 10px 0;
+        margin-top: 10px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        z-index: 999;
+        list-style: none;
+        margin-left: 0;
+    }
+
+    .desktop-nav .nav-menu .menu-item-has-children:hover .sub-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .desktop-nav .nav-menu .sub-menu li {
+        margin: 0;
+        padding: 0;
+    }
+
+    .desktop-nav .nav-menu .sub-menu a {
+        display: block;
+        padding: 10px 20px;
+        color: #2C2C2C;
+        font-size: 14px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .desktop-nav .nav-menu .sub-menu li:last-child a {
+        border-bottom: none;
+    }
+
+    .desktop-nav .nav-menu .sub-menu a:hover {
+        background-color: #f8f9fa;
+        color: #8B4513;
+        padding-left: 25px;
+    }
+
+    /* Mobile Dropdown Styles */
+    .mobile-menu .menu-item-has-children > a {
+        position: relative;
+    }
+
+    .mobile-menu .menu-item-has-children > a::after {
+        content: '\f107';
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        position: absolute;
+        right: 20px;
+        transition: transform 0.3s ease;
+    }
+
+    .mobile-menu .menu-item-has-children.active > a::after {
+        transform: rotate(180deg);
+    }
+
+    .mobile-menu .sub-menu {
+        display: none;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+    }
+
+    .mobile-menu .menu-item-has-children.active .sub-menu {
+        display: block;
+    }
+
+    .mobile-menu .sub-menu li {
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .mobile-menu .sub-menu a {
+        padding-left: 40px;
+        font-size: 14px;
+        color: #666;
+    }
+
+    .mobile-menu .sub-menu a:hover {
+        background-color: #e9ecef;
+    }
+
     .header-right {
         flex: 0 0 auto;
         display: flex;

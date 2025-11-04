@@ -35,8 +35,23 @@
             }
         });
 
-        // Close menu when clicking on a menu item
-        $('.mobile-menu a').on('click', function() {
+        // Mobile dropdown menu - toggle submenu on click
+        $('.mobile-menu .menu-item-has-children > a').on('click', function(e) {
+            // Check if this is a parent link (not a child submenu link)
+            if ($(this).parent().hasClass('menu-item-has-children')) {
+                e.preventDefault();
+                $(this).parent().toggleClass('active');
+            }
+        });
+
+        // Close menu when clicking on a non-parent menu item
+        $('.mobile-menu > li:not(.menu-item-has-children) > a').on('click', function() {
+            $('.mobile-menu-toggle').removeClass('active');
+            $('.mobile-nav').removeClass('active');
+        });
+
+        // Close menu when clicking on a submenu item
+        $('.mobile-menu .sub-menu a').on('click', function() {
             $('.mobile-menu-toggle').removeClass('active');
             $('.mobile-nav').removeClass('active');
         });

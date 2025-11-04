@@ -156,17 +156,47 @@ add_filter('body_class', 'furniture_stylo_body_classes');
 function furniture_stylo_fallback_menu() {
     echo '<ul class="nav-menu">';
     
-    // Get WooCommerce product categories
-    $categories = get_terms(array(
+    // Get only parent WooCommerce product categories (parent = 0)
+    $parent_categories = get_terms(array(
         'taxonomy' => 'product_cat',
         'hide_empty' => true,
         'orderby' => 'name',
-        'order' => 'ASC'
+        'order' => 'ASC',
+        'parent' => 0
     ));
     
-    if (!empty($categories) && !is_wp_error($categories)) {
-        foreach ($categories as $category) {
-            echo '<li><a href="' . get_term_link($category) . '">' . $category->name . '</a></li>';
+    if (!empty($parent_categories) && !is_wp_error($parent_categories)) {
+        foreach ($parent_categories as $parent_category) {
+            // Get child categories for this parent
+            $child_categories = get_terms(array(
+                'taxonomy' => 'product_cat',
+                'hide_empty' => true,
+                'orderby' => 'name',
+                'order' => 'ASC',
+                'parent' => $parent_category->term_id
+            ));
+            
+            // Check if this category has children
+            if (!empty($child_categories) && !is_wp_error($child_categories)) {
+                // Parent with children - add dropdown
+                echo '<li class="menu-item-has-children">';
+                echo '<a href="' . get_term_link($parent_category) . '">' . esc_html($parent_category->name) . '</a>';
+                echo '<ul class="sub-menu">';
+                
+                // Add parent category link as first item in dropdown
+                echo '<li><a href="' . get_term_link($parent_category) . '">All ' . esc_html($parent_category->name) . '</a></li>';
+                
+                // Add child categories
+                foreach ($child_categories as $child_category) {
+                    echo '<li><a href="' . get_term_link($child_category) . '">' . esc_html($child_category->name) . '</a></li>';
+                }
+                
+                echo '</ul>';
+                echo '</li>';
+            } else {
+                // Parent without children - simple link
+                echo '<li><a href="' . get_term_link($parent_category) . '">' . esc_html($parent_category->name) . '</a></li>';
+            }
         }
     }
     
