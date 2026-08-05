@@ -96,6 +96,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <div class="developer-credit">
+                            <p>Designed & Developed with <span class="heart-icon"><i class="fas fa-heart"></i></span> by <a href="https://www.mimctechnologies.com/" target="_blank">MIMC Technologies</a></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>

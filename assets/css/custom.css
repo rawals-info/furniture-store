@@ -1468,3 +1468,38 @@ html body .shop-content .products-grid .row .product-item {
         width: 100% !important;
     }
 }
+
+/* ===== Developer Credit ===== */
+.developer-credit {
+    padding-top: 15px;
+    margin-top: 15px;
+    border-top: 1px solid #444;
+    text-align: center;
+    color: #ccc;
+    font-size: 14px;
+}
+
+.developer-credit a {
+    color: var(--secondary-color);
+    font-weight: bold;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.developer-credit a:hover {
+    color: var(--primary-color);
+}
+
+.heart-icon {
+    color: #ff4d4d;
+    display: inline-block;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    14% { transform: scale(1.3); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.3); }
+    70% { transform: scale(1); }
+}
